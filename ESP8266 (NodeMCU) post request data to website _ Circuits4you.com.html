@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<!-- saved from url=(0081)https://circuits4you.com/2018/03/10/esp8266-nodemcu-post-request-data-to-website/ -->
+<html lang="en-US"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script async="" src="./ESP8266 (NodeMCU) post request data to website _ Circuits4you.com_files/analytics.js.download"></script><script async="" src="./ESP8266 (NodeMCU) post request data to website _ Circuits4you.com_files/f.txt"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-7614241663497500",
+              enable_page_level_ads: true
+        });
+    </script>
+
+	
+	<meta name="viewport" content="width=device-width">
+	<meta name="theme-color" content="#00A8A9">
+	<title>ESP8266 (NodeMCU) post request data to website | Circuits4you.com</title>
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+	<link rel="pingback" href="https://circuits4you.com/xmlrpc.php">
+	<!--[if lt IE 9]>
+	<script src="https://circuits4you.com/wp-content/themes/twentythirteen/js/html5.js"></script>
+	<![endif]-->
+	
+<!-- Start The SEO Framework by Sybre Waaijer -->
+<meta name="description" content="In this example we learn how to send post request to a web page using NodeMCU or ESP8266? Also Server side PHP coding is explained here.">
+<meta property="og:image" content="https://circuits4you.com/wp-content/uploads/2016/05/Logo.gif">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="230">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ESP8266 (NodeMCU) post request data to website | Circuits4you.com">
+<meta property="og:description" content="In this example we learn how to send post request to a web page using NodeMCU or ESP8266? Also Server side PHP coding is explained here.">
+<meta property="og:url" content="https://circuits4you.com/2018/03/10/esp8266-nodemcu-post-request-data-to-website/">
+<meta property="og:site_name" content="Circuits4you.com">
+<meta property="article:publisher" content="https://www.facebook.com/circuits4youcom-803851386361884">
+<meta property="article:published_time" content="2018-03-10T05:42-01:00">
+<meta property="article:modified_time" content="2018-07-22T08:23+00:00">
+<meta property="og:updated_time" content="2018-07-22T08:23+00:00">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ESP8266 (NodeMCU) post request data to website | Circuits4you.com">
+<meta name="twitter:description" content="In this example we learn how to send post request to a web page using NodeMCU or ESP8266? Also Server side PHP coding is explained here.">
+<meta name="twitter:image" content="https://circuits4you.com/wp-content/uploads/2016/05/Logo.gif">
+<meta name="twitter:image:width" content="1600">
+<meta name="twitter:image:height" content="230">
+<link rel="canonical" href="https://circuits4you.com/2018/03/10/esp8266-nodemcu-post-request-data-to-website/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://circuits4you.com/","name":"Circuits4you.com"}},{"@type":"ListItem","position":2,"item":{"@id":"https://circuits4you.com/category/iot/","name":"Internet of Things"}},{"@type":"ListItem","position":3,"item":{"@id":"https://circuits4you.com/category/iot/iot-tutorials/","name":"IoT Tutorials"}},{"@type":"ListItem","position":4,"item":{"@id":"https://circuits4you.com/2018/03/10/esp8266-nodemcu-post-request-data-to-website/","name":"ESP8266 (NodeMCU) post request data to website"}}]}</script>
+<!-- End The SEO Framework by Sybre Waaijer | 0.00483s -->
+
+<link rel="amphtml" href="https://circuits4you.com/2018/03/10/esp8266-nodemcu-post-request-data-to-website/amp/"><link rel="dns-prefetch" href="https://s0.wp.com/">
+<link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+<link rel="dns-prefetch" href="https://s.w.org/">
+<link href="https://fonts.gstatic.com/" crossorigin="" rel="preconnect">
+<link rel="alternate" type="application/rss+xml" title="Circuits4you.com » Feed" href="https://circuits4you.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="Circuits4you.com » Comments Feed" href="https://circuits4you.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Circuits4you.com » ESP8266 (NodeMCU) post request data to website Comments Feed" href="https://circuits4you.com/2018/03/10/esp8266-nodemcu-post-request-data-to-website/feed/">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/circuits4you.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.2.6"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./ESP8266 (NodeMCU) post request data to website _ Circuits4you.com_files/wp-emoji-release.min.js.download" type="text/javascript" defer=""></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel="stylesheet" id="crayon-css" href="./ESP8266 (NodeMCU) post request data to website _ Circuits4you.com_files/crayon.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="crayon-theme-arduino-ide-css" href="./ESP8266 (NodeMCU) post request data to website _ Circuits4you.com_files/arduino-ide.css" type="text/css" media="all">
+<link rel="stylesheet" id="crayon-font-consolas-css" href="./ESP8266 (NodeMCU) post request data to website _ Circuits4you.com_files/consolas.css" type="text/css" media="all">
+<link rel="stylesheet" id="wp-block-library-css" href="./ESP8266 (NodeMCU) post request data to website _ Circuits4you.com_files/style.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="wsl-widget-css" href="./ESP8266 (NodeMCU) post request data to website _ Circuits4you.com_files/style.css" type="text/css" media="all">
+<link rel="stylesheet" id="twentythirteen-fonts-css" href="./ESP8266 (NodeMCU) post request data to website _ Circuits4you.com_files/css" type="text/css" media="all">
+<link rel="stylesheet" id="genericons-css" href="./ESP8266 (NodeMCU) post request data to website _ Circuits4you.com_files/genericons.css" type="text/css" media="all">
+<link rel="stylesheet" id="twentythirteen-style-css" href="./ESP8266 (NodeMCU) post request data to website _ Circuits4you.com_files/style(1).css" type="text/css" media="all">
+<!--[if lt IE 9]>
+<link rel='stylesheet' id='twentythirteen-ie-css'  href='https://circuits4you.com/wp-content/themes/twentythirteen/css/ie.css?ver=2013-07-18' type='text/css' media='all' />
+<![endif]-->
+<link rel="stylesheet" id="jetpack_css-css" href="./ESP8266 (NodeMCU) post request data to website _ Circuits4you.com_files/jetpack.css" type="text/css" media="all">
+<script type="text/javascript" src="./ESP8266 (NodeMCU) post request data to website _ Circuits4you.com_files/jquery.js.download"></script><style>@media print {#ghostery-purple-box {display:none !important}}</style>
+<script type="text/javascript" src="./ESP8266 (NodeMCU) post request data to website _ Circuits4you.com_files/jquery-migrate.min.js.download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var related_posts_js_options = {"post_heading":"h4"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./ESP8266 (NodeMCU) post request data to website _ Circuits4you.com_files/related-posts.min.js.download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var CrayonSyntaxSettings = {"version":"_2.7.2_beta","is_admin":"0","ajaxurl":"https:\/\/circuits4you.com\/wp-admin\/admin-ajax.php","prefix":"crayon-","setting":"crayon-setting","selected":"crayon-setting-selected","changed":"crayon-setting-changed","special":"crayon-setting-special","orig_value":"data-orig-value","debug":""};
+var CrayonSyntaxStrings = {"copy":"Press %s to Copy, %s to Paste","minimize":"Click To Expand Code"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./ESP8266 (NodeMCU) post request data to website _ Circuits4you.com_files/crayon.min.js.download"></script>
+<link rel="https://api.w.org/" href="https://circuits4you.com/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://circuits4you.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://circuits4you.com/wp-includes/wlwmanifest.xml"> 
+<link rel="alternate" type="application/json+oembed" href="https://circuits4you.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcircuits4you.com%2F2018%2F03%2F10%2Fesp8266-nodemcu-post-request-data-to-website%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://circuits4you.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcircuits4you.com%2F2018%2F03%2F10%2Fesp8266-nodemcu-post-request-data-to-website%2F&amp;format=xml">
+
+<link rel="dns-prefetch" href="https://v0.wordpress.com/">
+<link rel="dns-prefetch" href="https://widgets.wp.com/">
+<link rel="dns-prefetch" href="https://s0.wp.com/">
+<link rel="dns-prefetch" href="https://0.gravatar.com/">
+<link rel="dns-prefetch" href="https://1.gravatar.com/">
+<link rel="dns-prefetch" href="https://2.gravatar.com/">
+<style type="text/css">img#wpstats{display:none}</style>	<style type="text/css" id="twentythirteen-header-css">
+			.site-header {
+			background: url(https://circuits4you.com/wp-content/uploads/2016/05/Logo.gif) no-repeat scroll top;
+			background-size: 1600px auto;
+		}
+		@media (max-width: 767px) {
+			.site-header {
+				background-size: 768px auto;
+			}
+		}
+		@media (max-width: 359px) {
+			.site-header {
+				background-size: 360px auto;
+			}
+		}
+			.site-title,
+		.site-description {
+			position: absolute;
+			clip: rect(1px 1px 1px 1px); /* IE7 */
+			clip: rect(1px, 1px, 1px, 1px);
+		}
+		</style>
+	
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="ESP8266 (NodeMCU) post request data to website">
+<meta property="og:url" content="https://circuits4you.com/2018/03/10/esp8266-nodemcu-post-request-data-to-website/">
+<meta property="og:description" content="In this example we learn how to send post request to a web page using NodeMCU or ESP8266? As we know all webpages are HTTP protocols, GET and POST are methods of communicating between web browser a…">
+<meta property="article:published_time" content="2018-03-10T06:42:27+00:00">
+<meta property="article:modified_time" content="2018-07-22T08:23:58+00:00">
+<meta property="og:site_name" content="Circuits4you.com">
+<meta property="og:image" content="https://circuits4you.com/wp-content/uploads/2018/03/esp-http-post-request.jpg">
+<meta property="og:image:width" content="544">
+<meta property="og:image:height" content="311">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:text:title" content="ESP8266 (NodeMCU) post request data to website">
+<meta name="twitter:card" content="summary">
+
+<!-- End Jetpack Open Graph Tags -->
+<link rel="icon" href="https://circuits4you.com/wp-content/uploads/2016/05/fevicon-150x150.png" sizes="32x32">
+<link rel="icon" href="https://circuits4you.com/wp-content/uploads/2016/05/fevicon.png" sizes="192x192">
+<link rel="apple-touch-icon-precomposed" href="https://circuits4you.com/wp-content/uploads/2016/05/fevicon.png">
+<meta name="msapplication-TileImage" content="https://circuits4you.com/wp-content/uploads/2016/05/fevicon.png">
+			<link rel="stylesheet" type="text/css" id="wp-custom-css" href="./ESP8266 (NodeMCU) post request data to website _ Circuits4you.com_files/saved_resource">
+		<link id="avast_os_ext_custom_font" href="chrome-extension://mbckjcfnjmoiinpgddefodcighgikkgn/common/ui/fonts/fonts.css" rel="stylesheet" type="text/css"></head>
+
+<body class="post-template-default single single-post postid-1308 single-format-standard single-author sidebar" cz-shortcut-listen="true">
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-62236280-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+	
+	<div id="page" class="hfeed site">
+		<header id="masthead" class="site-header" role="banner">
+			<a class="home-link" href="https://circuits4you.com/" title="Circuits4you.com" rel="home">
+				<h1 class="site-title">Circuits4you.com</h1>
+				<h2 class="site-description">Arduino interfacing, circuits tutorials with code and ebooks, Step by step guides for all sensor modules used for arduino. Programming tips and tricks.</h2>
+			</a>
+
+			<div id="navbar" class="navbar">
+				<nav id="site-navigation" class="navigation main-navigation" role="navigation">
+					<button class="menu-toggle">Menu</button>
+					<a class="screen-reader-text skip-link" href="https://circuits4you.com/2018/03/10/esp8266-nodemcu-post-request-data-to-website/#content" title="Skip to content">Skip to content</a>
+					<div class="menu-home-container"><ul id="primary-menu" class="nav-menu"><li id="menu-item-1610" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1610"><a href="https://image4resize.com/">Photo Resize</a></li>
+<li id="menu-item-1096" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1096"><a href="http://shop.circuits4you.com/">PROJECT SHOP</a></li>
+<li id="menu-item-44" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor menu-item-has-children menu-item-44"><a href="https://circuits4you.com/category/iot/">Internet of Things</a>
+<ul class="sub-menu">
+	<li id="menu-item-253" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-253"><a href="https://circuits4you.com/category/iot/iot-projects/">IoT Projects</a></li>
+	<li id="menu-item-254" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-254"><a href="https://circuits4you.com/category/iot/iot-tutorials/">IoT Tutorials</a></li>
+</ul>
+</li>
+<li id="menu-item-247" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-247"><a href="https://circuits4you.com/category/arduino/">Arduino</a>
+<ul class="sub-menu">
+	<li id="menu-item-248" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-248"><a href="https://circuits4you.com/category/arduino/arduino-projects/">Arduino Projects</a></li>
+	<li id="menu-item-249" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-249"><a href="https://circuits4you.com/category/arduino/arduino-tutorials/">Arduino Tutorials</a></li>
+</ul>
+</li>
+<li id="menu-item-6" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-6"><a>About Us</a>
+<ul class="sub-menu">
+	<li id="menu-item-18" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-18"><a href="https://circuits4you.com/contact-us/">Contact Us</a></li>
+	<li id="menu-item-17" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-17"><a href="https://circuits4you.com/terms-and-conditions/">Terms and Conditions</a></li>
+	<li id="menu-item-19" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-19"><a href="https://circuits4you.com/privacy-policy/">Privacy Policy</a></li>
+</ul>
+</li>
+</ul></div>					<form role="search" method="get" class="search-form" action="https://circuits4you.com/">
+				<label>
+					<span class="screen-reader-text">Search for:</span>
+					<input type="search" class="search-field" placeholder="Search …" value="" name="s">
+				</label>
+				<input type="submit" class="search-submit" value="Search">
+			</form>				</nav><!-- #site-navigation -->
+			</div><!-- #navbar -->
+		</header><!-- #masthead -->
+
+		<div id="main" class="site-main">
+
+	<div id="primary" class="content-area">
+		<div id="content" class="site-content" role="main">
+		    <div style="margin-left:100px;margin-top:25px">
+		        <script async="" src="./ESP8266 (NodeMCU) post request data to website _ Circuits4you.com_files/f.txt"></script>
+                <!-- c4ytoplead -->
+                <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-7614241663497500" data-ad-slot="2049244076"></ins>
+                <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+
+						
+				
+<article id="post-1308" class="post-1308 post type-post status-publish format-standard hentry category-esp8266 category-iot-tutorials tag-esp8266 tag-nodemcu tag-php tag-post">
+	<header class="entry-header">
+				
+				
+		<h1 class="entry-title">ESP8266 (NodeMCU) post request data to website</h1>
+		
+		<div class="entry-meta">
+			<span class="date"><a href="https://circuits4you.com/2018/03/10/esp8266-nodemcu-post-request-data-to-website/" title="Permalink to ESP8266 (NodeMCU) post request data to website" rel="bookmark"><time class="entry-date" datetime="2018-03-10T06:42:27+00:00">March 10, 2018</time></a></span><span class="categories-links"><a href="https://circuits4you.com/category/esp8266/" rel="category tag">ESP8266</a>, <a href="https://circuits4you.com/category/iot/iot-tutorials/" rel="category tag">IoT Tutorials</a></span><span class="tags-links"><a href="https://circuits4you.com/tag/esp8266/" rel="tag">ESP8266</a>, <a href="https://circuits4you.com/tag/nodemcu/" rel="tag">NodeMCU</a>, <a href="https://circuits4you.com/tag/php/" rel="tag">PHP</a>, <a href="https://circuits4you.com/tag/post/" rel="tag">POST</a></span><span class="author vcard"><a class="url fn n" href="https://circuits4you.com/author/admin/" title="View all posts by Manoj R. Thakur" rel="author">Manoj R. Thakur</a></span>					</div><!-- .entry-meta -->
+	<div>
+        <script async="" src="./ESP8266 (NodeMCU) post request data to website _ Circuits4you.com_files/f.txt"></script>
+        <!-- c4yaftertitle -->
+        <ins class="adsbygoogle" style="display:inline-block;width:468px;height:60px" data-ad-client="ca-pub-7614241663497500" data-ad-slot="5314713423"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+	</header><!-- .entry-header -->
+    
+
+		<div class="entry-content">
+		<p style="text-align: justify;">In this example we learn <strong>how to send post request</strong> to a web page using <strong>NodeMCU or ESP8266</strong>? As we know all webpages are HTTP protocols, GET and POST are methods of communicating between web browser and the server. Also we look towards server side <strong>php</strong> coding. <a href="https://circuits4you.com/2018/03/10/esp8266-http-get-request-example/" target="_blank" rel="noopener">If you are looking for GET method read here.</a><span id="more-1308"></span></p>
+<h2>What is HTTP?</h2>
+<p style="text-align: justify;">The Hypertext Transfer Protocol (HTTP) is designed to enable communications between clients and servers.<img class="aligncenter size-full wp-image-1310" src="./ESP8266 (NodeMCU) post request data to website _ Circuits4you.com_files/esp-http-post-request.jpg" alt="" width="544" height="311" srcset="https://circuits4you.com/wp-content/uploads/2018/03/esp-http-post-request.jpg 544w, https://circuits4you.com/wp-content/uploads/2018/03/esp-http-post-request-300x172.jpg 300w" sizes="(max-width: 544px) 100vw, 544px"></p>
+<p style="text-align: justify;">HTTP works as a request-response protocol between a client and server. Each Hypertext Transfer Protocol (HTTP) message is either a request or a response. A server listens on a connection for a request, parses each message received, interprets the message semantics in relation to the identified request target, and responds to that request with one or more response messages. A client constructs request messages to communicate specific intentions, examines received responses to see if the intentions were carried out, and determines how to interpret the results.</p>
+<p style="text-align: justify;">A web browser may be the client, and an application on a computer that hosts a web site may be the server.</p>
+<p style="text-align: justify;"><strong>Example:</strong> A client (browser) submits an HTTP request to the server; then the server returns a response to the client. The response contains status information about the request and may also contain the requested content.</p>
+<h2>Two HTTP Request Methods: GET and POST</h2>
+<p>Two commonly used methods for a request-response between a client and server are: GET and POST.</p>
+<ul>
+<li><b>GET</b> – Requests data from a specified resource</li>
+<li><b>POST</b> – Submits data to be processed to a specified resource</li>
+</ul>
+<h2>POST</h2>
+<p style="text-align: justify;">The POST method requests that the target resource process the representation enclosed in the request according to the resource’s own specific semantics. For example, POST is used for the following functions (among others):</p>
+<ol>
+<li style="text-align: justify;">Providing a block of data, such as the fields entered into an HTML form, to a data-handling process;</li>
+<li style="text-align: justify;">Posting a message to a bulletin board, newsgroup, mailing list, blog, or similar group of articles;</li>
+<li style="text-align: justify;">Creating a new resource that has yet to be identified by the origin server; and</li>
+<li style="text-align: justify;">Appending data to a resource’s existing representation(s).</li>
+</ol>
+<p style="text-align: justify;">An origin server indicates response semantics by choosing an appropriate status code depending on the result of processing the POST request; almost all of the status codes defined by this specification might be received in a response to POST (the exceptions being 206 (Partial Content), 304 (Not Modified), and 416 (Range Not Satisfiable)).</p>
+<h2>The POST Method</h2>
+<p><b>Note that the query string (name/value pairs) is sent in the HTTP message body of a POST request:</b></p>
+<div class="w3-code w3-border notranslate">
+<div>
+<!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5ee03f92379dc117405928" class="crayon-syntax crayon-theme-arduino-ide crayon-font-consolas crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 14px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 14px !important; height: 21px !important; line-height: 21px !important; margin-top: -21px; display: none; position: absolute; z-index: 2;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 14px !important;height: 21px !important; line-height: 21px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Arduino</span></div></div>
+			<div class="crayon-info" style="min-height: 19.6px !important; line-height: 19.6px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="tab-size: 4; font-size: 14px !important; line-height: 15px !important; z-index: 0; opacity: 0; overflow: hidden;">POST / HTTP/1.1
+Host: foo.com
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 13
+
+say=Hi&amp;amp;to=Mom</textarea></div>
+			<div class="crayon-main" style="max-height: 700px; position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 14px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5ee03f92379dc117405928-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379dc117405928-2">2</div><div class="crayon-num" data-line="crayon-5ee03f92379dc117405928-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379dc117405928-4">4</div><div class="crayon-num" data-line="crayon-5ee03f92379dc117405928-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379dc117405928-6">6</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 14px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5ee03f92379dc117405928-1"><span class="crayon-v">POST</span><span class="crayon-h"> </span><span class="crayon-o">/</span><span class="crayon-h"> </span><span class="crayon-v">HTTP</span><span class="crayon-o">/</span><span class="crayon-cn">1.1</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379dc117405928-2"><span class="crayon-v">Host</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-v">foo</span><span class="crayon-sy">.</span><span class="crayon-i">com</span></div><div class="crayon-line" id="crayon-5ee03f92379dc117405928-3"><span class="crayon-v">Content</span><span class="crayon-o">-</span><span class="crayon-v">Type</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-v">application</span><span class="crayon-o">/</span><span class="crayon-v">x</span><span class="crayon-o">-</span><span class="crayon-v">www</span><span class="crayon-o">-</span><span class="crayon-v">form</span><span class="crayon-o">-</span><span class="crayon-i">urlencoded</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379dc117405928-4"><span class="crayon-v">Content</span><span class="crayon-o">-</span><span class="crayon-v">Length</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-cn">13</span></div><div class="crayon-line" id="crayon-5ee03f92379dc117405928-5">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379dc117405928-6"><span class="crayon-v">say</span><span class="crayon-o">=</span><span class="crayon-v">Hi</span><span class="crayon-o">&amp;</span><span class="crayon-v">amp</span><span class="crayon-sy">;</span><span class="crayon-v">to</span><span class="crayon-o">=</span><span class="crayon-v">Mom</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0041 seconds] -->
+
+</div>
+</div>
+<p><b>Some other notes on POST requests:</b></p>
+<ul>
+<li>POST requests are never cached</li>
+<li>POST requests do not remain in the browser history</li>
+<li>POST requests cannot be bookmarked</li>
+<li>POST requests have no restrictions on data length</li>
+</ul>
+<h2>ESP8266 POST Example Code</h2>
+<p style="text-align: justify;">Make changes in wifi settings, SSID and password of your wifi network and change server ip. Also change POST request data as per your server requirements.</p>
+<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5ee03f92379e6959731380" class="crayon-syntax crayon-theme-arduino-ide crayon-font-consolas crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 14px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 14px !important; height: 21px !important; line-height: 21px !important; margin-top: -21px; display: none; position: absolute; z-index: 2;"><span class="crayon-title">NodeMCU post example code</span>
+			<div class="crayon-tools" style="font-size: 14px !important;height: 21px !important; line-height: 21px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button crayon-pressed" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Arduino</span></div></div>
+			<div class="crayon-info" style="min-height: 19.6px !important; line-height: 19.6px !important; margin-top: -24px; display: none;"><div>Press CTRL+C to Copy, CTRL+V to Paste</div></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="tab-size: 4; font-size: 14px !important; line-height: 15px !important; z-index: 1; opacity: 1; overflow: hidden; height: 700px;">/*
+ * HTTP Client POST Request
+ * Copyright (c) 2018, circuits4you.com
+ * All rights reserved.
+ * https://circuits4you.com 
+ * Connects to WiFi HotSpot. */
+
+#include &lt;ESP8266WiFi.h&gt;
+#include &lt;WiFiClient.h&gt; 
+#include &lt;ESP8266WebServer.h&gt;
+#include &lt;ESP8266HTTPClient.h&gt;
+
+/* Set these to your desired credentials. */
+const char *ssid = "circuits4you.com";  //ENTER YOUR WIFI SETTINGS
+const char *password = "yourPassword";
+
+//Web/Server address to read/write from 
+const char *host = "192.168.43.128";   //https://circuits4you.com website or IP address of server
+
+//=======================================================================
+//                    Power on setup
+//=======================================================================
+
+void setup() {
+  delay(1000);
+  Serial.begin(115200);
+  WiFi.mode(WIFI_OFF);        //Prevents reconnection issue (taking too long to connect)
+  delay(1000);
+  WiFi.mode(WIFI_STA);        //This line hides the viewing of ESP as wifi hotspot
+  
+  WiFi.begin(ssid, password);     //Connect to your WiFi router
+  Serial.println("");
+
+  Serial.print("Connecting");
+  // Wait for connection
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+
+  //If connection successful show IP address in serial monitor
+  Serial.println("");
+  Serial.print("Connected to ");
+  Serial.println(ssid);
+  Serial.print("IP address: ");
+  Serial.println(WiFi.localIP());  //IP address assigned to your ESP
+}
+
+//=======================================================================
+//                    Main Program Loop
+//=======================================================================
+void loop() {
+  HTTPClient http;    //Declare object of class HTTPClient
+
+  String ADCData, station, postData;
+  int adcvalue=analogRead(A0);  //Read Analog value of LDR
+  ADCData = String(adcvalue);   //String to interger conversion
+  station = "A";
+
+  //Post Data
+  postData = "status=" + ADCData + "&amp;station=" + station ;
+  
+  http.begin("http://192.168.43.128/c4yforum/postdemo.php");              //Specify request destination
+  http.addHeader("Content-Type", "application/x-www-form-urlencoded");    //Specify content-type header
+
+  int httpCode = http.POST(postData);   //Send the request
+  String payload = http.getString();    //Get the response payload
+
+  Serial.println(httpCode);   //Print HTTP return code
+  Serial.println(payload);    //Print request response payload
+
+  http.end();  //Close connection
+  
+  delay(5000);  //Post Data at every 5 seconds
+}
+//=======================================================================</textarea></div>
+			<div class="crayon-main" style="max-height: 700px; position: relative; z-index: 0; overflow: hidden; opacity: 0;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 14px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5ee03f92379e6959731380-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379e6959731380-2">2</div><div class="crayon-num" data-line="crayon-5ee03f92379e6959731380-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379e6959731380-4">4</div><div class="crayon-num" data-line="crayon-5ee03f92379e6959731380-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379e6959731380-6">6</div><div class="crayon-num" data-line="crayon-5ee03f92379e6959731380-7">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379e6959731380-8">8</div><div class="crayon-num" data-line="crayon-5ee03f92379e6959731380-9">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379e6959731380-10">10</div><div class="crayon-num" data-line="crayon-5ee03f92379e6959731380-11">11</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379e6959731380-12">12</div><div class="crayon-num" data-line="crayon-5ee03f92379e6959731380-13">13</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379e6959731380-14">14</div><div class="crayon-num" data-line="crayon-5ee03f92379e6959731380-15">15</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379e6959731380-16">16</div><div class="crayon-num" data-line="crayon-5ee03f92379e6959731380-17">17</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379e6959731380-18">18</div><div class="crayon-num" data-line="crayon-5ee03f92379e6959731380-19">19</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379e6959731380-20">20</div><div class="crayon-num" data-line="crayon-5ee03f92379e6959731380-21">21</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379e6959731380-22">22</div><div class="crayon-num" data-line="crayon-5ee03f92379e6959731380-23">23</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379e6959731380-24">24</div><div class="crayon-num" data-line="crayon-5ee03f92379e6959731380-25">25</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379e6959731380-26">26</div><div class="crayon-num" data-line="crayon-5ee03f92379e6959731380-27">27</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379e6959731380-28">28</div><div class="crayon-num" data-line="crayon-5ee03f92379e6959731380-29">29</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379e6959731380-30">30</div><div class="crayon-num" data-line="crayon-5ee03f92379e6959731380-31">31</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379e6959731380-32">32</div><div class="crayon-num" data-line="crayon-5ee03f92379e6959731380-33">33</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379e6959731380-34">34</div><div class="crayon-num" data-line="crayon-5ee03f92379e6959731380-35">35</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379e6959731380-36">36</div><div class="crayon-num" data-line="crayon-5ee03f92379e6959731380-37">37</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379e6959731380-38">38</div><div class="crayon-num" data-line="crayon-5ee03f92379e6959731380-39">39</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379e6959731380-40">40</div><div class="crayon-num" data-line="crayon-5ee03f92379e6959731380-41">41</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379e6959731380-42">42</div><div class="crayon-num" data-line="crayon-5ee03f92379e6959731380-43">43</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379e6959731380-44">44</div><div class="crayon-num" data-line="crayon-5ee03f92379e6959731380-45">45</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379e6959731380-46">46</div><div class="crayon-num" data-line="crayon-5ee03f92379e6959731380-47">47</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379e6959731380-48">48</div><div class="crayon-num" data-line="crayon-5ee03f92379e6959731380-49">49</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379e6959731380-50">50</div><div class="crayon-num" data-line="crayon-5ee03f92379e6959731380-51">51</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379e6959731380-52">52</div><div class="crayon-num" data-line="crayon-5ee03f92379e6959731380-53">53</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379e6959731380-54">54</div><div class="crayon-num" data-line="crayon-5ee03f92379e6959731380-55">55</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379e6959731380-56">56</div><div class="crayon-num" data-line="crayon-5ee03f92379e6959731380-57">57</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379e6959731380-58">58</div><div class="crayon-num" data-line="crayon-5ee03f92379e6959731380-59">59</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379e6959731380-60">60</div><div class="crayon-num" data-line="crayon-5ee03f92379e6959731380-61">61</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379e6959731380-62">62</div><div class="crayon-num" data-line="crayon-5ee03f92379e6959731380-63">63</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379e6959731380-64">64</div><div class="crayon-num" data-line="crayon-5ee03f92379e6959731380-65">65</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379e6959731380-66">66</div><div class="crayon-num" data-line="crayon-5ee03f92379e6959731380-67">67</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379e6959731380-68">68</div><div class="crayon-num" data-line="crayon-5ee03f92379e6959731380-69">69</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379e6959731380-70">70</div><div class="crayon-num" data-line="crayon-5ee03f92379e6959731380-71">71</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379e6959731380-72">72</div><div class="crayon-num" data-line="crayon-5ee03f92379e6959731380-73">73</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379e6959731380-74">74</div><div class="crayon-num" data-line="crayon-5ee03f92379e6959731380-75">75</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379e6959731380-76">76</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 14px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5ee03f92379e6959731380-1"><span class="crayon-c">/*</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379e6959731380-2"><span class="crayon-c"> * HTTP Client POST Request</span></div><div class="crayon-line" id="crayon-5ee03f92379e6959731380-3"><span class="crayon-c"> * Copyright (c) 2018, circuits4you.com</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379e6959731380-4"><span class="crayon-c"> * All rights reserved.</span></div><div class="crayon-line" id="crayon-5ee03f92379e6959731380-5"><span class="crayon-c"> * https://circuits4you.com </span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379e6959731380-6"><span class="crayon-c"> * Connects to WiFi HotSpot. */</span></div><div class="crayon-line" id="crayon-5ee03f92379e6959731380-7">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379e6959731380-8"><span class="crayon-p">#include &lt;ESP8266WiFi.h&gt;</span></div><div class="crayon-line" id="crayon-5ee03f92379e6959731380-9"><span class="crayon-p">#include &lt;WiFiClient.h&gt; </span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379e6959731380-10"><span class="crayon-p">#include &lt;ESP8266WebServer.h&gt;</span></div><div class="crayon-line" id="crayon-5ee03f92379e6959731380-11"><span class="crayon-p">#include &lt;ESP8266HTTPClient.h&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379e6959731380-12">&nbsp;</div><div class="crayon-line" id="crayon-5ee03f92379e6959731380-13"><span class="crayon-c">/* Set these to your desired credentials. */</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379e6959731380-14"><span class="crayon-r">const</span><span class="crayon-h"> </span><span class="crayon-r">char</span><span class="crayon-h"> </span><span class="crayon-o">*</span><span class="crayon-v">ssid</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">"circuits4you.com"</span><span class="crayon-sy">;</span><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-c">//ENTER YOUR WIFI SETTINGS</span></div><div class="crayon-line" id="crayon-5ee03f92379e6959731380-15"><span class="crayon-r">const</span><span class="crayon-h"> </span><span class="crayon-r">char</span><span class="crayon-h"> </span><span class="crayon-o">*</span><span class="crayon-v">password</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">"yourPassword"</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379e6959731380-16">&nbsp;</div><div class="crayon-line" id="crayon-5ee03f92379e6959731380-17"><span class="crayon-c">//Web/Server address to read/write from </span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379e6959731380-18"><span class="crayon-r">const</span><span class="crayon-h"> </span><span class="crayon-r">char</span><span class="crayon-h"> </span><span class="crayon-o">*</span><span class="crayon-v">host</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">"192.168.43.128"</span><span class="crayon-sy">;</span><span class="crayon-h">&nbsp;&nbsp; </span><span class="crayon-c">//https://circuits4you.com website or IP address of server</span></div><div class="crayon-line" id="crayon-5ee03f92379e6959731380-19">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379e6959731380-20"><span class="crayon-c">//=======================================================================</span></div><div class="crayon-line" id="crayon-5ee03f92379e6959731380-21"><span class="crayon-c">//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Power on setup</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379e6959731380-22"><span class="crayon-c">//=======================================================================</span></div><div class="crayon-line" id="crayon-5ee03f92379e6959731380-23">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379e6959731380-24"><span class="crayon-t">void</span><span class="crayon-h"> </span><span class="crayon-st">setup</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-5ee03f92379e6959731380-25"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-st">delay</span><span class="crayon-sy">(</span><span class="crayon-cn">1000</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379e6959731380-26"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-st">Serial</span><span class="crayon-sy">.</span><span class="crayon-v">begin</span><span class="crayon-sy">(</span><span class="crayon-cn">115200</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5ee03f92379e6959731380-27"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-v">WiFi</span><span class="crayon-sy">.</span><span class="crayon-m">mode</span><span class="crayon-sy">(</span><span class="crayon-v">WIFI_OFF</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-c">//Prevents reconnection issue (taking too long to connect)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379e6959731380-28"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-st">delay</span><span class="crayon-sy">(</span><span class="crayon-cn">1000</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5ee03f92379e6959731380-29"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-v">WiFi</span><span class="crayon-sy">.</span><span class="crayon-m">mode</span><span class="crayon-sy">(</span><span class="crayon-v">WIFI_STA</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-c">//This line hides the viewing of ESP as wifi hotspot</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379e6959731380-30"><span class="crayon-h">&nbsp;&nbsp;</span></div><div class="crayon-line" id="crayon-5ee03f92379e6959731380-31"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-v">WiFi</span><span class="crayon-sy">.</span><span class="crayon-v">begin</span><span class="crayon-sy">(</span><span class="crayon-v">ssid</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">password</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-c">//Connect to your WiFi router</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379e6959731380-32"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-st">Serial</span><span class="crayon-sy">.</span><span class="crayon-e">println</span><span class="crayon-sy">(</span><span class="crayon-s">""</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5ee03f92379e6959731380-33">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379e6959731380-34"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-st">Serial</span><span class="crayon-sy">.</span><span class="crayon-e">print</span><span class="crayon-sy">(</span><span class="crayon-s">"Connecting"</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5ee03f92379e6959731380-35"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-c">// Wait for connection</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379e6959731380-36"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-st">while</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-v">WiFi</span><span class="crayon-sy">.</span><span class="crayon-v">status</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-o">!=</span><span class="crayon-h"> </span><span class="crayon-v">WL_CONNECTED</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-5ee03f92379e6959731380-37"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">delay</span><span class="crayon-sy">(</span><span class="crayon-cn">500</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379e6959731380-38"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">Serial</span><span class="crayon-sy">.</span><span class="crayon-e">print</span><span class="crayon-sy">(</span><span class="crayon-s">"."</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5ee03f92379e6959731380-39"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379e6959731380-40">&nbsp;</div><div class="crayon-line" id="crayon-5ee03f92379e6959731380-41"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-c">//If connection successful show IP address in serial monitor</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379e6959731380-42"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-st">Serial</span><span class="crayon-sy">.</span><span class="crayon-e">println</span><span class="crayon-sy">(</span><span class="crayon-s">""</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5ee03f92379e6959731380-43"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-st">Serial</span><span class="crayon-sy">.</span><span class="crayon-e">print</span><span class="crayon-sy">(</span><span class="crayon-s">"Connected to "</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379e6959731380-44"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-st">Serial</span><span class="crayon-sy">.</span><span class="crayon-e">println</span><span class="crayon-sy">(</span><span class="crayon-v">ssid</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5ee03f92379e6959731380-45"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-st">Serial</span><span class="crayon-sy">.</span><span class="crayon-e">print</span><span class="crayon-sy">(</span><span class="crayon-s">"IP address: "</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379e6959731380-46"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-st">Serial</span><span class="crayon-sy">.</span><span class="crayon-e">println</span><span class="crayon-sy">(</span><span class="crayon-v">WiFi</span><span class="crayon-sy">.</span><span class="crayon-v">localIP</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-c">//IP address assigned to your ESP</span></div><div class="crayon-line" id="crayon-5ee03f92379e6959731380-47"><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379e6959731380-48">&nbsp;</div><div class="crayon-line" id="crayon-5ee03f92379e6959731380-49"><span class="crayon-c">//=======================================================================</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379e6959731380-50"><span class="crayon-c">//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Main Program Loop</span></div><div class="crayon-line" id="crayon-5ee03f92379e6959731380-51"><span class="crayon-c">//=======================================================================</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379e6959731380-52"><span class="crayon-t">void</span><span class="crayon-h"> </span><span class="crayon-st">loop</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-5ee03f92379e6959731380-53"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-i">HTTPClient</span><span class="crayon-h"> </span><span class="crayon-v">http</span><span class="crayon-sy">;</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-c">//Declare object of class HTTPClient</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379e6959731380-54">&nbsp;</div><div class="crayon-line" id="crayon-5ee03f92379e6959731380-55"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-t">String</span><span class="crayon-h"> </span><span class="crayon-v">ADCData</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">station</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">postData</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379e6959731380-56"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-r">int</span><span class="crayon-h"> </span><span class="crayon-v">adcvalue</span><span class="crayon-o">=</span><span class="crayon-st">analogRead</span><span class="crayon-sy">(</span><span class="crayon-v">A0</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-c">//Read Analog value of LDR</span></div><div class="crayon-line" id="crayon-5ee03f92379e6959731380-57"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-v">ADCData</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-t">String</span><span class="crayon-sy">(</span><span class="crayon-v">adcvalue</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span><span class="crayon-h">&nbsp;&nbsp; </span><span class="crayon-c">//String to interger conversion</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379e6959731380-58"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-v">station</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">"A"</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5ee03f92379e6959731380-59">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379e6959731380-60"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-c">//Post Data</span></div><div class="crayon-line" id="crayon-5ee03f92379e6959731380-61"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-v">postData</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">"status="</span><span class="crayon-h"> </span><span class="crayon-o">+</span><span class="crayon-h"> </span><span class="crayon-v">ADCData</span><span class="crayon-h"> </span><span class="crayon-o">+</span><span class="crayon-h"> </span><span class="crayon-s">"&amp;station="</span><span class="crayon-h"> </span><span class="crayon-o">+</span><span class="crayon-h"> </span><span class="crayon-i">station</span><span class="crayon-h"> </span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379e6959731380-62"><span class="crayon-h">&nbsp;&nbsp;</span></div><div class="crayon-line" id="crayon-5ee03f92379e6959731380-63"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-v">http</span><span class="crayon-sy">.</span><span class="crayon-v">begin</span><span class="crayon-sy">(</span><span class="crayon-s">"http://192.168.43.128/c4yforum/postdemo.php"</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-c">//Specify request destination</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379e6959731380-64"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-v">http</span><span class="crayon-sy">.</span><span class="crayon-v">addHeader</span><span class="crayon-sy">(</span><span class="crayon-s">"Content-Type"</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">"application/x-www-form-urlencoded"</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-c">//Specify content-type header</span></div><div class="crayon-line" id="crayon-5ee03f92379e6959731380-65">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379e6959731380-66"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-r">int</span><span class="crayon-h"> </span><span class="crayon-v">httpCode</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">http</span><span class="crayon-sy">.</span><span class="crayon-v">POST</span><span class="crayon-sy">(</span><span class="crayon-v">postData</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span><span class="crayon-h">&nbsp;&nbsp; </span><span class="crayon-c">//Send the request</span></div><div class="crayon-line" id="crayon-5ee03f92379e6959731380-67"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-t">String</span><span class="crayon-h"> </span><span class="crayon-v">payload</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">http</span><span class="crayon-sy">.</span><span class="crayon-v">getString</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-c">//Get the response payload</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379e6959731380-68">&nbsp;</div><div class="crayon-line" id="crayon-5ee03f92379e6959731380-69"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-st">Serial</span><span class="crayon-sy">.</span><span class="crayon-e">println</span><span class="crayon-sy">(</span><span class="crayon-v">httpCode</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span><span class="crayon-h">&nbsp;&nbsp; </span><span class="crayon-c">//Print HTTP return code</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379e6959731380-70"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-st">Serial</span><span class="crayon-sy">.</span><span class="crayon-e">println</span><span class="crayon-sy">(</span><span class="crayon-v">payload</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-c">//Print request response payload</span></div><div class="crayon-line" id="crayon-5ee03f92379e6959731380-71">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379e6959731380-72"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-v">http</span><span class="crayon-sy">.</span><span class="crayon-v">end</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-c">//Close connection</span></div><div class="crayon-line" id="crayon-5ee03f92379e6959731380-73"><span class="crayon-h">&nbsp;&nbsp;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379e6959731380-74"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-st">delay</span><span class="crayon-sy">(</span><span class="crayon-cn">5000</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-c">//Post Data at every 5 seconds</span></div><div class="crayon-line" id="crayon-5ee03f92379e6959731380-75"><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379e6959731380-76"><span class="crayon-c">//=======================================================================</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0033 seconds] -->
+<p>Upload the code and open serial monitor, in case of any problem it will show errors.</p>
+<p><img class="aligncenter size-full wp-image-1311" src="./ESP8266 (NodeMCU) post request data to website _ Circuits4you.com_files/NodeMCU-POST-request.png" alt="" width="714" height="382" srcset="https://circuits4you.com/wp-content/uploads/2018/03/NodeMCU-POST-request.png 714w, https://circuits4you.com/wp-content/uploads/2018/03/NodeMCU-POST-request-300x161.png 300w" sizes="(max-width: 714px) 100vw, 714px"></p>
+<h2>Server side programs</h2>
+<p style="text-align: justify;">Server side program consists of three parts 1. Database creation 2. Data logging and 3. Display logged data. To run this codes you need WAMP or LAMP installed (apache2, mySql and PHP)</p>
+<h3>Database creation PHP Code i.e. <strong>install.php</strong></h3>
+<p><strong>Enter your mySQL usename and password in code.</strong></p>
+<p><strong>install.php</strong></p>
+<p style="text-align: justify;">This program will create database and tables required for our demo application. This is run once code.</p>
+<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5ee03f92379eb239111959" class="crayon-syntax crayon-theme-arduino-ide crayon-font-consolas crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 14px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 14px !important; height: 21px !important; line-height: 21px !important; margin-top: -21px; display: none; position: absolute; z-index: 2;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 14px !important;height: 21px !important; line-height: 21px !important;"><span class="crayon-mixed-highlight" title="Contains Mixed Languages"></span><div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">PHP</span></div></div>
+			<div class="crayon-info" style="min-height: 19.6px !important; line-height: 19.6px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="tab-size: 4; font-size: 14px !important; line-height: 15px !important; z-index: 0; opacity: 0; overflow: hidden;">&lt;?php
+//Create Data base if not exists
+	$servername = "localhost";
+	$username = "root";
+	$password = "root";
+
+	// Create connection
+	$conn = new mysqli($servername, $username, $password);
+	// Check connection
+	if ($conn-&gt;connect_error) {
+	    die("Connection failed: " . $conn-&gt;connect_error);
+	}
+
+	// Create database
+	$sql = "CREATE DATABASE espdemo";
+	if ($conn-&gt;query($sql) === TRUE) {
+	    echo "Database created successfully";
+	} else {
+	    echo "Error creating database: " . $conn-&gt;error;
+	}
+
+	$conn-&gt;close();
+
+	echo "&lt;br&gt;";
+//Connect to database and create table
+	$servername = "localhost";
+	$username = "root";
+	$password = "root";
+	$dbname = "espdemo";
+
+	// Create connection
+	$conn = new mysqli($servername, $username, $password, $dbname);
+	// Check connection
+	if ($conn-&gt;connect_error) {
+	    die("Connection failed: " . $conn-&gt;connect_error);
+	}
+
+	//Sr No, Station, Status(OK, NM, WM, ACK) Date, Time
+	//1         A          NM                 12-5-18    12:15:00 am
+	// sql to create table
+	$sql = "CREATE TABLE logs (
+	id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	station VARCHAR(30),
+	status VARCHAR(30),
+	remark VARCHAR(50),
+	`Date` DATE NULL,
+	`Time` TIME NULL, 
+	`TimeStamp` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+	)";
+
+	if ($conn-&gt;query($sql) === TRUE) {
+	    echo "Table logs created successfully";
+	} else {
+	    echo "Error creating table: " . $conn-&gt;error;
+	}
+
+	$conn-&gt;close();
+?&gt;</textarea></div>
+			<div class="crayon-main" style="max-height: 700px; position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 14px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5ee03f92379eb239111959-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379eb239111959-2">2</div><div class="crayon-num" data-line="crayon-5ee03f92379eb239111959-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379eb239111959-4">4</div><div class="crayon-num" data-line="crayon-5ee03f92379eb239111959-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379eb239111959-6">6</div><div class="crayon-num" data-line="crayon-5ee03f92379eb239111959-7">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379eb239111959-8">8</div><div class="crayon-num" data-line="crayon-5ee03f92379eb239111959-9">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379eb239111959-10">10</div><div class="crayon-num" data-line="crayon-5ee03f92379eb239111959-11">11</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379eb239111959-12">12</div><div class="crayon-num" data-line="crayon-5ee03f92379eb239111959-13">13</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379eb239111959-14">14</div><div class="crayon-num" data-line="crayon-5ee03f92379eb239111959-15">15</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379eb239111959-16">16</div><div class="crayon-num" data-line="crayon-5ee03f92379eb239111959-17">17</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379eb239111959-18">18</div><div class="crayon-num" data-line="crayon-5ee03f92379eb239111959-19">19</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379eb239111959-20">20</div><div class="crayon-num" data-line="crayon-5ee03f92379eb239111959-21">21</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379eb239111959-22">22</div><div class="crayon-num" data-line="crayon-5ee03f92379eb239111959-23">23</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379eb239111959-24">24</div><div class="crayon-num" data-line="crayon-5ee03f92379eb239111959-25">25</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379eb239111959-26">26</div><div class="crayon-num" data-line="crayon-5ee03f92379eb239111959-27">27</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379eb239111959-28">28</div><div class="crayon-num" data-line="crayon-5ee03f92379eb239111959-29">29</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379eb239111959-30">30</div><div class="crayon-num" data-line="crayon-5ee03f92379eb239111959-31">31</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379eb239111959-32">32</div><div class="crayon-num" data-line="crayon-5ee03f92379eb239111959-33">33</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379eb239111959-34">34</div><div class="crayon-num" data-line="crayon-5ee03f92379eb239111959-35">35</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379eb239111959-36">36</div><div class="crayon-num" data-line="crayon-5ee03f92379eb239111959-37">37</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379eb239111959-38">38</div><div class="crayon-num" data-line="crayon-5ee03f92379eb239111959-39">39</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379eb239111959-40">40</div><div class="crayon-num" data-line="crayon-5ee03f92379eb239111959-41">41</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379eb239111959-42">42</div><div class="crayon-num" data-line="crayon-5ee03f92379eb239111959-43">43</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379eb239111959-44">44</div><div class="crayon-num" data-line="crayon-5ee03f92379eb239111959-45">45</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379eb239111959-46">46</div><div class="crayon-num" data-line="crayon-5ee03f92379eb239111959-47">47</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379eb239111959-48">48</div><div class="crayon-num" data-line="crayon-5ee03f92379eb239111959-49">49</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379eb239111959-50">50</div><div class="crayon-num" data-line="crayon-5ee03f92379eb239111959-51">51</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379eb239111959-52">52</div><div class="crayon-num" data-line="crayon-5ee03f92379eb239111959-53">53</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379eb239111959-54">54</div><div class="crayon-num" data-line="crayon-5ee03f92379eb239111959-55">55</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379eb239111959-56">56</div><div class="crayon-num" data-line="crayon-5ee03f92379eb239111959-57">57</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379eb239111959-58">58</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 14px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5ee03f92379eb239111959-1"><span class="crayon-ta">&lt;?php</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379eb239111959-2"><span class="crayon-c">//Create Data base if not exists</span></div><div class="crayon-line" id="crayon-5ee03f92379eb239111959-3"><span class="crayon-h">	</span><span class="crayon-v">$servername</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">"localhost"</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379eb239111959-4"><span class="crayon-h">	</span><span class="crayon-v">$username</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">"root"</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5ee03f92379eb239111959-5"><span class="crayon-h">	</span><span class="crayon-v">$password</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">"root"</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379eb239111959-6">&nbsp;</div><div class="crayon-line" id="crayon-5ee03f92379eb239111959-7"><span class="crayon-h">	</span><span class="crayon-c">// Create connection</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379eb239111959-8"><span class="crayon-h">	</span><span class="crayon-v">$conn</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-r">new</span><span class="crayon-h"> </span><span class="crayon-e">mysqli</span><span class="crayon-sy">(</span><span class="crayon-v">$servername</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">$username</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">$password</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5ee03f92379eb239111959-9"><span class="crayon-h">	</span><span class="crayon-c">// Check connection</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379eb239111959-10"><span class="crayon-h">	</span><span class="crayon-st">if</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-v">$conn</span><span class="crayon-o">-&gt;</span><span class="crayon-i">connect_error</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-5ee03f92379eb239111959-11"><span class="crayon-h">	&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-k ">die</span><span class="crayon-sy">(</span><span class="crayon-s">"Connection failed: "</span><span class="crayon-h"> </span><span class="crayon-sy">.</span><span class="crayon-h"> </span><span class="crayon-v">$conn</span><span class="crayon-o">-&gt;</span><span class="crayon-i">connect_error</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379eb239111959-12"><span class="crayon-h">	</span><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-5ee03f92379eb239111959-13">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379eb239111959-14"><span class="crayon-h">	</span><span class="crayon-c">// Create database</span></div><div class="crayon-line" id="crayon-5ee03f92379eb239111959-15"><span class="crayon-h">	</span><span class="crayon-v">$sql</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">"CREATE DATABASE espdemo"</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379eb239111959-16"><span class="crayon-h">	</span><span class="crayon-st">if</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-v">$conn</span><span class="crayon-o">-&gt;</span><span class="crayon-e">query</span><span class="crayon-sy">(</span><span class="crayon-v">$sql</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-o">===</span><span class="crayon-h"> </span><span class="crayon-t">TRUE</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-5ee03f92379eb239111959-17"><span class="crayon-h">	&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-k ">echo</span><span class="crayon-h"> </span><span class="crayon-s">"Database created successfully"</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379eb239111959-18"><span class="crayon-h">	</span><span class="crayon-sy">}</span><span class="crayon-h"> </span><span class="crayon-st">else</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-5ee03f92379eb239111959-19"><span class="crayon-h">	&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-k ">echo</span><span class="crayon-h"> </span><span class="crayon-s">"Error creating database: "</span><span class="crayon-h"> </span><span class="crayon-sy">.</span><span class="crayon-h"> </span><span class="crayon-v">$conn</span><span class="crayon-o">-&gt;</span><span class="crayon-i">error</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379eb239111959-20"><span class="crayon-h">	</span><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-5ee03f92379eb239111959-21">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379eb239111959-22"><span class="crayon-h">	</span><span class="crayon-v">$conn</span><span class="crayon-o">-&gt;</span><span class="crayon-e">close</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5ee03f92379eb239111959-23">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379eb239111959-24"><span class="crayon-h">	</span><span class="crayon-k ">echo</span><span class="crayon-h"> </span><span class="crayon-s">"&lt;br&gt;"</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5ee03f92379eb239111959-25"><span class="crayon-c">//Connect to database and create table</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379eb239111959-26"><span class="crayon-h">	</span><span class="crayon-v">$servername</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">"localhost"</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5ee03f92379eb239111959-27"><span class="crayon-h">	</span><span class="crayon-v">$username</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">"root"</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379eb239111959-28"><span class="crayon-h">	</span><span class="crayon-v">$password</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">"root"</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5ee03f92379eb239111959-29"><span class="crayon-h">	</span><span class="crayon-v">$dbname</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">"espdemo"</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379eb239111959-30">&nbsp;</div><div class="crayon-line" id="crayon-5ee03f92379eb239111959-31"><span class="crayon-h">	</span><span class="crayon-c">// Create connection</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379eb239111959-32"><span class="crayon-h">	</span><span class="crayon-v">$conn</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-r">new</span><span class="crayon-h"> </span><span class="crayon-e">mysqli</span><span class="crayon-sy">(</span><span class="crayon-v">$servername</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">$username</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">$password</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">$dbname</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5ee03f92379eb239111959-33"><span class="crayon-h">	</span><span class="crayon-c">// Check connection</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379eb239111959-34"><span class="crayon-h">	</span><span class="crayon-st">if</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-v">$conn</span><span class="crayon-o">-&gt;</span><span class="crayon-i">connect_error</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-5ee03f92379eb239111959-35"><span class="crayon-h">	&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-k ">die</span><span class="crayon-sy">(</span><span class="crayon-s">"Connection failed: "</span><span class="crayon-h"> </span><span class="crayon-sy">.</span><span class="crayon-h"> </span><span class="crayon-v">$conn</span><span class="crayon-o">-&gt;</span><span class="crayon-i">connect_error</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379eb239111959-36"><span class="crayon-h">	</span><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-5ee03f92379eb239111959-37">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379eb239111959-38"><span class="crayon-h">	</span><span class="crayon-c">//Sr No, Station, Status(OK, NM, WM, ACK) Date, Time</span></div><div class="crayon-line" id="crayon-5ee03f92379eb239111959-39"><span class="crayon-h">	</span><span class="crayon-c">//1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 12-5-18&nbsp;&nbsp;&nbsp;&nbsp;12:15:00 am</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379eb239111959-40"><span class="crayon-h">	</span><span class="crayon-c">// sql to create table</span></div><div class="crayon-line" id="crayon-5ee03f92379eb239111959-41"><span class="crayon-h">	</span><span class="crayon-v">$sql</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">"CREATE TABLE logs (</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379eb239111959-42"><span class="crayon-s">	id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,</span></div><div class="crayon-line" id="crayon-5ee03f92379eb239111959-43"><span class="crayon-s">	station VARCHAR(30),</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379eb239111959-44"><span class="crayon-s">	status VARCHAR(30),</span></div><div class="crayon-line" id="crayon-5ee03f92379eb239111959-45"><span class="crayon-s">	remark VARCHAR(50),</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379eb239111959-46"><span class="crayon-s">	`Date` DATE NULL,</span></div><div class="crayon-line" id="crayon-5ee03f92379eb239111959-47"><span class="crayon-s">	`Time` TIME NULL, </span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379eb239111959-48"><span class="crayon-s">	`TimeStamp` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP</span></div><div class="crayon-line" id="crayon-5ee03f92379eb239111959-49"><span class="crayon-s">	)"</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379eb239111959-50">&nbsp;</div><div class="crayon-line" id="crayon-5ee03f92379eb239111959-51"><span class="crayon-h">	</span><span class="crayon-st">if</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-v">$conn</span><span class="crayon-o">-&gt;</span><span class="crayon-e">query</span><span class="crayon-sy">(</span><span class="crayon-v">$sql</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-o">===</span><span class="crayon-h"> </span><span class="crayon-t">TRUE</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379eb239111959-52"><span class="crayon-h">	&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-k ">echo</span><span class="crayon-h"> </span><span class="crayon-s">"Table logs created successfully"</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5ee03f92379eb239111959-53"><span class="crayon-h">	</span><span class="crayon-sy">}</span><span class="crayon-h"> </span><span class="crayon-st">else</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379eb239111959-54"><span class="crayon-h">	&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-k ">echo</span><span class="crayon-h"> </span><span class="crayon-s">"Error creating table: "</span><span class="crayon-h"> </span><span class="crayon-sy">.</span><span class="crayon-h"> </span><span class="crayon-v">$conn</span><span class="crayon-o">-&gt;</span><span class="crayon-i">error</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5ee03f92379eb239111959-55"><span class="crayon-h">	</span><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379eb239111959-56">&nbsp;</div><div class="crayon-line" id="crayon-5ee03f92379eb239111959-57"><span class="crayon-h">	</span><span class="crayon-v">$conn</span><span class="crayon-o">-&gt;</span><span class="crayon-e">close</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379eb239111959-58"><span class="crayon-ta">?&gt;</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0035 seconds] -->
+<p></p>
+<h3>Data logging PHP Code which handles POST request</h3>
+<p><strong>postdemo.php file</strong></p>
+<p>This is responsible for storing data into database. it will give only OK or Errors.</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5ee03f92379f0207266399" class="crayon-syntax crayon-theme-arduino-ide crayon-font-consolas crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 14px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 14px !important; height: 21px !important; line-height: 21px !important; margin-top: -21px; display: none; position: absolute; z-index: 2;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 14px !important;height: 21px !important; line-height: 21px !important;"><span class="crayon-mixed-highlight" title="Contains Mixed Languages"></span><div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">PHP</span></div></div>
+			<div class="crayon-info" style="min-height: 19.6px !important; line-height: 19.6px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="tab-size: 4; font-size: 14px !important; line-height: 15px !important; z-index: 0; opacity: 0; overflow: hidden;">&lt;?php
+//Creates new record as per request
+    //Connect to database
+    $servername = "localhost";
+    $username = "root";
+    $password = "root";
+    $dbname = "espdemo";
+
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    // Check connection
+    if ($conn-&gt;connect_error) {
+        die("Database Connection failed: " . $conn-&gt;connect_error);
+    }
+
+    //Get current date and time
+    date_default_timezone_set('Asia/Kolkata');
+    $d = date("Y-m-d");
+    //echo " Date:".$d."&lt;BR&gt;";
+    $t = date("H:i:s");
+
+    if(!empty($_POST['status']) &amp;&amp; !empty($_POST['station']))
+    {
+    	$status = $_POST['status'];
+    	$station = $_POST['station'];
+
+	    $sql = "INSERT INTO logs (station, status, Date, Time)
+		
+		VALUES ('".$station."', '".$status."', '".$d."', '".$t."')";
+
+		if ($conn-&gt;query($sql) === TRUE) {
+		    echo "OK";
+		} else {
+		    echo "Error: " . $sql . "&lt;br&gt;" . $conn-&gt;error;
+		}
+	}
+
+
+	$conn-&gt;close();
+?&gt;</textarea></div>
+			<div class="crayon-main" style="max-height: 700px; position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 14px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5ee03f92379f0207266399-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f0207266399-2">2</div><div class="crayon-num" data-line="crayon-5ee03f92379f0207266399-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f0207266399-4">4</div><div class="crayon-num" data-line="crayon-5ee03f92379f0207266399-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f0207266399-6">6</div><div class="crayon-num" data-line="crayon-5ee03f92379f0207266399-7">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f0207266399-8">8</div><div class="crayon-num" data-line="crayon-5ee03f92379f0207266399-9">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f0207266399-10">10</div><div class="crayon-num" data-line="crayon-5ee03f92379f0207266399-11">11</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f0207266399-12">12</div><div class="crayon-num" data-line="crayon-5ee03f92379f0207266399-13">13</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f0207266399-14">14</div><div class="crayon-num" data-line="crayon-5ee03f92379f0207266399-15">15</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f0207266399-16">16</div><div class="crayon-num" data-line="crayon-5ee03f92379f0207266399-17">17</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f0207266399-18">18</div><div class="crayon-num" data-line="crayon-5ee03f92379f0207266399-19">19</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f0207266399-20">20</div><div class="crayon-num" data-line="crayon-5ee03f92379f0207266399-21">21</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f0207266399-22">22</div><div class="crayon-num" data-line="crayon-5ee03f92379f0207266399-23">23</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f0207266399-24">24</div><div class="crayon-num" data-line="crayon-5ee03f92379f0207266399-25">25</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f0207266399-26">26</div><div class="crayon-num" data-line="crayon-5ee03f92379f0207266399-27">27</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f0207266399-28">28</div><div class="crayon-num" data-line="crayon-5ee03f92379f0207266399-29">29</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f0207266399-30">30</div><div class="crayon-num" data-line="crayon-5ee03f92379f0207266399-31">31</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f0207266399-32">32</div><div class="crayon-num" data-line="crayon-5ee03f92379f0207266399-33">33</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f0207266399-34">34</div><div class="crayon-num" data-line="crayon-5ee03f92379f0207266399-35">35</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f0207266399-36">36</div><div class="crayon-num" data-line="crayon-5ee03f92379f0207266399-37">37</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f0207266399-38">38</div><div class="crayon-num" data-line="crayon-5ee03f92379f0207266399-39">39</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f0207266399-40">40</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 14px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5ee03f92379f0207266399-1"><span class="crayon-ta">&lt;?php</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f0207266399-2"><span class="crayon-c">//Creates new record as per request</span></div><div class="crayon-line" id="crayon-5ee03f92379f0207266399-3"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-c">//Connect to database</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f0207266399-4"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">$servername</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">"localhost"</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5ee03f92379f0207266399-5"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">$username</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">"root"</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f0207266399-6"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">$password</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">"root"</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5ee03f92379f0207266399-7"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">$dbname</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">"espdemo"</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f0207266399-8">&nbsp;</div><div class="crayon-line" id="crayon-5ee03f92379f0207266399-9"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-c">// Create connection</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f0207266399-10"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">$conn</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-r">new</span><span class="crayon-h"> </span><span class="crayon-e">mysqli</span><span class="crayon-sy">(</span><span class="crayon-v">$servername</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">$username</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">$password</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">$dbname</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5ee03f92379f0207266399-11"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-c">// Check connection</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f0207266399-12"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">if</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-v">$conn</span><span class="crayon-o">-&gt;</span><span class="crayon-i">connect_error</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-5ee03f92379f0207266399-13"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-k ">die</span><span class="crayon-sy">(</span><span class="crayon-s">"Database Connection failed: "</span><span class="crayon-h"> </span><span class="crayon-sy">.</span><span class="crayon-h"> </span><span class="crayon-v">$conn</span><span class="crayon-o">-&gt;</span><span class="crayon-i">connect_error</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f0207266399-14"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-5ee03f92379f0207266399-15">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f0207266399-16"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-c">//Get current date and time</span></div><div class="crayon-line" id="crayon-5ee03f92379f0207266399-17"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e">date_default_timezone_set</span><span class="crayon-sy">(</span><span class="crayon-s">'Asia/Kolkata'</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f0207266399-18"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">$d</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-e">date</span><span class="crayon-sy">(</span><span class="crayon-s">"Y-m-d"</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5ee03f92379f0207266399-19"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-c">//echo " Date:".$d."&lt;BR&gt;";</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f0207266399-20"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">$t</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-e">date</span><span class="crayon-sy">(</span><span class="crayon-s">"H:i:s"</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5ee03f92379f0207266399-21">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f0207266399-22"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">if</span><span class="crayon-sy">(</span><span class="crayon-o">!</span><span class="crayon-k ">empty</span><span class="crayon-sy">(</span><span class="crayon-v">$_POST</span><span class="crayon-sy">[</span><span class="crayon-s">'status'</span><span class="crayon-sy">]</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-o">&amp;&amp;</span><span class="crayon-h"> </span><span class="crayon-o">!</span><span class="crayon-k ">empty</span><span class="crayon-sy">(</span><span class="crayon-v">$_POST</span><span class="crayon-sy">[</span><span class="crayon-s">'station'</span><span class="crayon-sy">]</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5ee03f92379f0207266399-23"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f0207266399-24"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;	</span><span class="crayon-v">$status</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">$_POST</span><span class="crayon-sy">[</span><span class="crayon-s">'status'</span><span class="crayon-sy">]</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5ee03f92379f0207266399-25"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;	</span><span class="crayon-v">$station</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">$_POST</span><span class="crayon-sy">[</span><span class="crayon-s">'station'</span><span class="crayon-sy">]</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f0207266399-26">&nbsp;</div><div class="crayon-line" id="crayon-5ee03f92379f0207266399-27"><span class="crayon-h">	&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">$sql</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">"INSERT INTO logs (station, status, Date, Time)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f0207266399-28"><span class="crayon-s">		</span></div><div class="crayon-line" id="crayon-5ee03f92379f0207266399-29"><span class="crayon-s">		VALUES ('"</span><span class="crayon-sy">.</span><span class="crayon-v">$station</span><span class="crayon-sy">.</span><span class="crayon-s">"', '"</span><span class="crayon-sy">.</span><span class="crayon-v">$status</span><span class="crayon-sy">.</span><span class="crayon-s">"', '"</span><span class="crayon-sy">.</span><span class="crayon-v">$d</span><span class="crayon-sy">.</span><span class="crayon-s">"', '"</span><span class="crayon-sy">.</span><span class="crayon-v">$t</span><span class="crayon-sy">.</span><span class="crayon-s">"')"</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f0207266399-30">&nbsp;</div><div class="crayon-line" id="crayon-5ee03f92379f0207266399-31"><span class="crayon-h">		</span><span class="crayon-st">if</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-v">$conn</span><span class="crayon-o">-&gt;</span><span class="crayon-e">query</span><span class="crayon-sy">(</span><span class="crayon-v">$sql</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-o">===</span><span class="crayon-h"> </span><span class="crayon-t">TRUE</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f0207266399-32"><span class="crayon-h">		&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-k ">echo</span><span class="crayon-h"> </span><span class="crayon-s">"OK"</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5ee03f92379f0207266399-33"><span class="crayon-h">		</span><span class="crayon-sy">}</span><span class="crayon-h"> </span><span class="crayon-st">else</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f0207266399-34"><span class="crayon-h">		&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-k ">echo</span><span class="crayon-h"> </span><span class="crayon-s">"Error: "</span><span class="crayon-h"> </span><span class="crayon-sy">.</span><span class="crayon-h"> </span><span class="crayon-v">$sql</span><span class="crayon-h"> </span><span class="crayon-sy">.</span><span class="crayon-h"> </span><span class="crayon-s">"&lt;br&gt;"</span><span class="crayon-h"> </span><span class="crayon-sy">.</span><span class="crayon-h"> </span><span class="crayon-v">$conn</span><span class="crayon-o">-&gt;</span><span class="crayon-i">error</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5ee03f92379f0207266399-35"><span class="crayon-h">		</span><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f0207266399-36"><span class="crayon-h">	</span><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-5ee03f92379f0207266399-37">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f0207266399-38">&nbsp;</div><div class="crayon-line" id="crayon-5ee03f92379f0207266399-39"><span class="crayon-h">	</span><span class="crayon-v">$conn</span><span class="crayon-o">-&gt;</span><span class="crayon-e">close</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f0207266399-40"><span class="crayon-ta">?&gt;</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0021 seconds] -->
+<p></p>
+<h3>Display logged data</h3>
+<p><strong>view.php File</strong></p>
+<p>This will show logged data in web browser</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5ee03f92379f3325311673" class="crayon-syntax crayon-theme-arduino-ide crayon-font-consolas crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 14px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 14px !important; height: 21px !important; line-height: 21px !important; margin-top: -21px; display: none; position: absolute; z-index: 2;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 14px !important;height: 21px !important; line-height: 21px !important;"><span class="crayon-mixed-highlight" title="Contains Mixed Languages"></span><div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">PHP</span></div></div>
+			<div class="crayon-info" style="min-height: 19.6px !important; line-height: 19.6px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="tab-size: 4; font-size: 14px !important; line-height: 15px !important; z-index: 0; opacity: 0; overflow: hidden;">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv="refresh" content="5"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;style&gt;
+#c4ytable {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#c4ytable td, #c4ytable th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#c4ytable tr:nth-child(even){background-color: #f2f2f2;}
+
+#c4ytable tr:hover {background-color: #ddd;}
+
+#c4ytable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #00A8A9;
+    color: white;
+}
+&lt;/style&gt;
+
+&lt;?php
+    //Connect to database and create table
+    $servername = "localhost";
+    $username = "root";
+    $password = "root";
+    $dbname = "espdemo";
+
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    // Check connection
+    if ($conn-&gt;connect_error) {
+        die("Database Connection failed: " . $conn-&gt;connect_error);
+        echo "&lt;a href='install.php'&gt;If first time running click here to install database&lt;/a&gt;";
+    }
+?&gt; 
+
+
+&lt;div id="cards" class="cards"&gt;
+
+&lt;?php 
+    $sql = "SELECT * FROM logs ORDER BY id DESC";
+    if ($result=mysqli_query($conn,$sql))
+    {
+      // Fetch one and one row
+      echo "&lt;TABLE id='c4ytable'&gt;";
+      echo "&lt;TR&gt;&lt;TH&gt;Sr.No.&lt;/TH&gt;&lt;TH&gt;Station&lt;/TH&gt;&lt;TH&gt;ADC Value&lt;/TH&gt;&lt;TH&gt;Date&lt;/TH&gt;&lt;TH&gt;Time&lt;/TH&gt;&lt;/TR&gt;";
+      while ($row=mysqli_fetch_row($result))
+      {
+        echo "&lt;TR&gt;";
+        echo "&lt;TD&gt;".$row[0]."&lt;/TD&gt;";
+        echo "&lt;TD&gt;".$row[1]."&lt;/TD&gt;";
+        echo "&lt;TD&gt;".$row[2]."&lt;/TD&gt;";
+        //echo "&lt;TD&gt;".$row[3]."&lt;/TD&gt;";
+        echo "&lt;TD&gt;".$row[4]."&lt;/TD&gt;";
+        echo "&lt;TD&gt;".$row[5]."&lt;/TD&gt;";
+        echo "&lt;/TR&gt;";
+      }
+      echo "&lt;/TABLE&gt;";
+      // Free result set
+      mysqli_free_result($result);
+    }
+
+    mysqli_close($conn);
+?&gt;
+&lt;/body&gt;
+&lt;/html&gt;</textarea></div>
+			<div class="crayon-main" style="max-height: 700px; position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 14px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5ee03f92379f3325311673-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f3325311673-2">2</div><div class="crayon-num" data-line="crayon-5ee03f92379f3325311673-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f3325311673-4">4</div><div class="crayon-num" data-line="crayon-5ee03f92379f3325311673-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f3325311673-6">6</div><div class="crayon-num" data-line="crayon-5ee03f92379f3325311673-7">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f3325311673-8">8</div><div class="crayon-num" data-line="crayon-5ee03f92379f3325311673-9">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f3325311673-10">10</div><div class="crayon-num" data-line="crayon-5ee03f92379f3325311673-11">11</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f3325311673-12">12</div><div class="crayon-num" data-line="crayon-5ee03f92379f3325311673-13">13</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f3325311673-14">14</div><div class="crayon-num" data-line="crayon-5ee03f92379f3325311673-15">15</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f3325311673-16">16</div><div class="crayon-num" data-line="crayon-5ee03f92379f3325311673-17">17</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f3325311673-18">18</div><div class="crayon-num" data-line="crayon-5ee03f92379f3325311673-19">19</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f3325311673-20">20</div><div class="crayon-num" data-line="crayon-5ee03f92379f3325311673-21">21</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f3325311673-22">22</div><div class="crayon-num" data-line="crayon-5ee03f92379f3325311673-23">23</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f3325311673-24">24</div><div class="crayon-num" data-line="crayon-5ee03f92379f3325311673-25">25</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f3325311673-26">26</div><div class="crayon-num" data-line="crayon-5ee03f92379f3325311673-27">27</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f3325311673-28">28</div><div class="crayon-num" data-line="crayon-5ee03f92379f3325311673-29">29</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f3325311673-30">30</div><div class="crayon-num" data-line="crayon-5ee03f92379f3325311673-31">31</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f3325311673-32">32</div><div class="crayon-num" data-line="crayon-5ee03f92379f3325311673-33">33</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f3325311673-34">34</div><div class="crayon-num" data-line="crayon-5ee03f92379f3325311673-35">35</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f3325311673-36">36</div><div class="crayon-num" data-line="crayon-5ee03f92379f3325311673-37">37</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f3325311673-38">38</div><div class="crayon-num" data-line="crayon-5ee03f92379f3325311673-39">39</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f3325311673-40">40</div><div class="crayon-num" data-line="crayon-5ee03f92379f3325311673-41">41</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f3325311673-42">42</div><div class="crayon-num" data-line="crayon-5ee03f92379f3325311673-43">43</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f3325311673-44">44</div><div class="crayon-num" data-line="crayon-5ee03f92379f3325311673-45">45</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f3325311673-46">46</div><div class="crayon-num" data-line="crayon-5ee03f92379f3325311673-47">47</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f3325311673-48">48</div><div class="crayon-num" data-line="crayon-5ee03f92379f3325311673-49">49</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f3325311673-50">50</div><div class="crayon-num" data-line="crayon-5ee03f92379f3325311673-51">51</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f3325311673-52">52</div><div class="crayon-num" data-line="crayon-5ee03f92379f3325311673-53">53</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f3325311673-54">54</div><div class="crayon-num" data-line="crayon-5ee03f92379f3325311673-55">55</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f3325311673-56">56</div><div class="crayon-num" data-line="crayon-5ee03f92379f3325311673-57">57</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f3325311673-58">58</div><div class="crayon-num" data-line="crayon-5ee03f92379f3325311673-59">59</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f3325311673-60">60</div><div class="crayon-num" data-line="crayon-5ee03f92379f3325311673-61">61</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f3325311673-62">62</div><div class="crayon-num" data-line="crayon-5ee03f92379f3325311673-63">63</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f3325311673-64">64</div><div class="crayon-num" data-line="crayon-5ee03f92379f3325311673-65">65</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f3325311673-66">66</div><div class="crayon-num" data-line="crayon-5ee03f92379f3325311673-67">67</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f3325311673-68">68</div><div class="crayon-num" data-line="crayon-5ee03f92379f3325311673-69">69</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f3325311673-70">70</div><div class="crayon-num" data-line="crayon-5ee03f92379f3325311673-71">71</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f3325311673-72">72</div><div class="crayon-num" data-line="crayon-5ee03f92379f3325311673-73">73</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f3325311673-74">74</div><div class="crayon-num" data-line="crayon-5ee03f92379f3325311673-75">75</div><div class="crayon-num crayon-striped-num" data-line="crayon-5ee03f92379f3325311673-76">76</div><div class="crayon-num" data-line="crayon-5ee03f92379f3325311673-77">77</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 14px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5ee03f92379f3325311673-1"><span class="crayon-o">&lt;</span><span class="crayon-o">!</span><span class="crayon-e">DOCTYPE </span><span class="crayon-i">html</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f3325311673-2"><span class="crayon-o">&lt;</span><span class="crayon-i">html</span><span class="crayon-o">&gt;</span></div><div class="crayon-line" id="crayon-5ee03f92379f3325311673-3"><span class="crayon-o">&lt;</span><span class="crayon-i">head</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f3325311673-4"><span class="crayon-o">&lt;</span><span class="crayon-e">meta </span><span class="crayon-i">http</span><span class="crayon-o">-</span><span class="crayon-i">equiv</span><span class="crayon-o">=</span><span class="crayon-s">"refresh"</span><span class="crayon-h"> </span><span class="crayon-i">content</span><span class="crayon-o">=</span><span class="crayon-s">"5"</span><span class="crayon-o">&gt;</span></div><div class="crayon-line" id="crayon-5ee03f92379f3325311673-5"><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-e">head</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f3325311673-6"><span class="crayon-o">&lt;</span><span class="crayon-e">body</span><span class="crayon-o">&gt;</span></div><div class="crayon-line" id="crayon-5ee03f92379f3325311673-7"><span class="crayon-ta">&lt;style&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f3325311673-8"><span class="crayon-k ">#c4ytable </span><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-5ee03f92379f3325311673-9"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e ">font-family</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-s">"Trebuchet MS"</span><span class="crayon-i ">,</span><span class="crayon-h"> </span><span class="crayon-i ">Arial,</span><span class="crayon-h"> </span><span class="crayon-i ">Helvetica,</span><span class="crayon-h"> </span><span class="crayon-i ">sans-serif</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f3325311673-10"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e ">border-collapse</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">collapse</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5ee03f92379f3325311673-11"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e ">width</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">100%</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f3325311673-12"><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-5ee03f92379f3325311673-13">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f3325311673-14"><span class="crayon-k ">#c4ytable td, #c4ytable th </span><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-5ee03f92379f3325311673-15"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e ">border</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">1px</span><span class="crayon-h"> </span><span class="crayon-i ">solid</span><span class="crayon-h"> </span><span class="crayon-i ">#ddd</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f3325311673-16"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e ">padding</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">8px</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5ee03f92379f3325311673-17"><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f3325311673-18">&nbsp;</div><div class="crayon-line" id="crayon-5ee03f92379f3325311673-19"><span class="crayon-k ">#c4ytable tr:nth-child(even)</span><span class="crayon-sy">{</span><span class="crayon-e ">background-color</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">#f2f2f2</span><span class="crayon-sy">;</span><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f3325311673-20">&nbsp;</div><div class="crayon-line" id="crayon-5ee03f92379f3325311673-21"><span class="crayon-k ">#c4ytable tr:hover </span><span class="crayon-sy">{</span><span class="crayon-e ">background-color</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">#ddd</span><span class="crayon-sy">;</span><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f3325311673-22">&nbsp;</div><div class="crayon-line" id="crayon-5ee03f92379f3325311673-23"><span class="crayon-k ">#c4ytable th </span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f3325311673-24"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e ">padding-top</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">12px</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5ee03f92379f3325311673-25"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e ">padding-bottom</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">12px</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f3325311673-26"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e ">text-align</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">left</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5ee03f92379f3325311673-27"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e ">background-color</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">#00A8A9</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f3325311673-28"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e ">color</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">white</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5ee03f92379f3325311673-29"><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f3325311673-30"><span class="crayon-ta">&lt;/style&gt;</span></div><div class="crayon-line" id="crayon-5ee03f92379f3325311673-31">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f3325311673-32"><span class="crayon-ta">&lt;?php</span></div><div class="crayon-line" id="crayon-5ee03f92379f3325311673-33"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-c">//Connect to database and create table</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f3325311673-34"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">$servername</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">"localhost"</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5ee03f92379f3325311673-35"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">$username</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">"root"</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f3325311673-36"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">$password</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">"root"</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5ee03f92379f3325311673-37"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">$dbname</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">"espdemo"</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f3325311673-38">&nbsp;</div><div class="crayon-line" id="crayon-5ee03f92379f3325311673-39"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-c">// Create connection</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f3325311673-40"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">$conn</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-r">new</span><span class="crayon-h"> </span><span class="crayon-e">mysqli</span><span class="crayon-sy">(</span><span class="crayon-v">$servername</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">$username</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">$password</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">$dbname</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5ee03f92379f3325311673-41"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-c">// Check connection</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f3325311673-42"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">if</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-v">$conn</span><span class="crayon-o">-&gt;</span><span class="crayon-i">connect_error</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-5ee03f92379f3325311673-43"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-k ">die</span><span class="crayon-sy">(</span><span class="crayon-s">"Database Connection failed: "</span><span class="crayon-h"> </span><span class="crayon-sy">.</span><span class="crayon-h"> </span><span class="crayon-v">$conn</span><span class="crayon-o">-&gt;</span><span class="crayon-i">connect_error</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f3325311673-44"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-k ">echo</span><span class="crayon-h"> </span><span class="crayon-s">"&lt;a href='install.php'&gt;If first time running click here to install database&lt;/a&gt;"</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5ee03f92379f3325311673-45"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f3325311673-46"><span class="crayon-ta">?&gt;</span><span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-5ee03f92379f3325311673-47">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f3325311673-48">&nbsp;</div><div class="crayon-line" id="crayon-5ee03f92379f3325311673-49"><span class="crayon-o">&lt;</span><span class="crayon-e">div </span><span class="crayon-i">id</span><span class="crayon-o">=</span><span class="crayon-s">"cards"</span><span class="crayon-h"> </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cards"</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f3325311673-50">&nbsp;</div><div class="crayon-line" id="crayon-5ee03f92379f3325311673-51"><span class="crayon-ta">&lt;?php</span><span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f3325311673-52"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">$sql</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">"SELECT * FROM logs ORDER BY id DESC"</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5ee03f92379f3325311673-53"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">if</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-v">$result</span><span class="crayon-o">=</span><span class="crayon-e">mysqli_query</span><span class="crayon-sy">(</span><span class="crayon-v">$conn</span><span class="crayon-sy">,</span><span class="crayon-v">$sql</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f3325311673-54"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-5ee03f92379f3325311673-55"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-c">// Fetch one and one row</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f3325311673-56"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-k ">echo</span><span class="crayon-h"> </span><span class="crayon-s">"&lt;TABLE id='c4ytable'&gt;"</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5ee03f92379f3325311673-57"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-k ">echo</span><span class="crayon-h"> </span><span class="crayon-s">"&lt;TR&gt;&lt;TH&gt;Sr.No.&lt;/TH&gt;&lt;TH&gt;Station&lt;/TH&gt;&lt;TH&gt;ADC Value&lt;/TH&gt;&lt;TH&gt;Date&lt;/TH&gt;&lt;TH&gt;Time&lt;/TH&gt;&lt;/TR&gt;"</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f3325311673-58"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">while</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-v">$row</span><span class="crayon-o">=</span><span class="crayon-e">mysqli_fetch_row</span><span class="crayon-sy">(</span><span class="crayon-v">$result</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5ee03f92379f3325311673-59"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f3325311673-60"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-k ">echo</span><span class="crayon-h"> </span><span class="crayon-s">"&lt;TR&gt;"</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5ee03f92379f3325311673-61"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-k ">echo</span><span class="crayon-h"> </span><span class="crayon-s">"&lt;TD&gt;"</span><span class="crayon-sy">.</span><span class="crayon-v">$row</span><span class="crayon-sy">[</span><span class="crayon-cn">0</span><span class="crayon-sy">]</span><span class="crayon-sy">.</span><span class="crayon-s">"&lt;/TD&gt;"</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f3325311673-62"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-k ">echo</span><span class="crayon-h"> </span><span class="crayon-s">"&lt;TD&gt;"</span><span class="crayon-sy">.</span><span class="crayon-v">$row</span><span class="crayon-sy">[</span><span class="crayon-cn">1</span><span class="crayon-sy">]</span><span class="crayon-sy">.</span><span class="crayon-s">"&lt;/TD&gt;"</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5ee03f92379f3325311673-63"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-k ">echo</span><span class="crayon-h"> </span><span class="crayon-s">"&lt;TD&gt;"</span><span class="crayon-sy">.</span><span class="crayon-v">$row</span><span class="crayon-sy">[</span><span class="crayon-cn">2</span><span class="crayon-sy">]</span><span class="crayon-sy">.</span><span class="crayon-s">"&lt;/TD&gt;"</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f3325311673-64"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-c">//echo "&lt;TD&gt;".$row[3]."&lt;/TD&gt;";</span></div><div class="crayon-line" id="crayon-5ee03f92379f3325311673-65"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-k ">echo</span><span class="crayon-h"> </span><span class="crayon-s">"&lt;TD&gt;"</span><span class="crayon-sy">.</span><span class="crayon-v">$row</span><span class="crayon-sy">[</span><span class="crayon-cn">4</span><span class="crayon-sy">]</span><span class="crayon-sy">.</span><span class="crayon-s">"&lt;/TD&gt;"</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f3325311673-66"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-k ">echo</span><span class="crayon-h"> </span><span class="crayon-s">"&lt;TD&gt;"</span><span class="crayon-sy">.</span><span class="crayon-v">$row</span><span class="crayon-sy">[</span><span class="crayon-cn">5</span><span class="crayon-sy">]</span><span class="crayon-sy">.</span><span class="crayon-s">"&lt;/TD&gt;"</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5ee03f92379f3325311673-67"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-k ">echo</span><span class="crayon-h"> </span><span class="crayon-s">"&lt;/TR&gt;"</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f3325311673-68"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-5ee03f92379f3325311673-69"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-k ">echo</span><span class="crayon-h"> </span><span class="crayon-s">"&lt;/TABLE&gt;"</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f3325311673-70"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-c">// Free result set</span></div><div class="crayon-line" id="crayon-5ee03f92379f3325311673-71"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e">mysqli_free_result</span><span class="crayon-sy">(</span><span class="crayon-v">$result</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f3325311673-72"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-5ee03f92379f3325311673-73">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f3325311673-74"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e">mysqli_close</span><span class="crayon-sy">(</span><span class="crayon-v">$conn</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5ee03f92379f3325311673-75"><span class="crayon-ta">?&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5ee03f92379f3325311673-76"><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-i">body</span><span class="crayon-o">&gt;</span></div><div class="crayon-line" id="crayon-5ee03f92379f3325311673-77"><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-i">html</span><span class="crayon-o">&gt;</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0055 seconds] -->
+<p></p>
+<h3>Display of logged data</h3>
+<p><img class="aligncenter size-full wp-image-1312" src="./ESP8266 (NodeMCU) post request data to website _ Circuits4you.com_files/ESP8266-post-logged-data.png" alt="" width="647" height="479" srcset="https://circuits4you.com/wp-content/uploads/2018/03/ESP8266-post-logged-data.png 647w, https://circuits4you.com/wp-content/uploads/2018/03/ESP8266-post-logged-data-300x222.png 300w" sizes="(max-width: 647px) 100vw, 647px"></p>
+<p>This way you can make your own cloud server for data logging and displaying it.</p>
+<p><a href="https://circuits4you.com/2018/03/10/esp8266-http-get-request-example/" target="_blank" rel="noopener">How to make GET request ? explained here</a></p>
+<ul class="socialmanoj"><li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcircuits4you.com%2F2018%2F03%2F10%2Fesp8266-nodemcu-post-request-data-to-website%2F" target="_blank"><svg width="15" height="15" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1343 12v264h-157q-86 0-116 36t-30 108v189h293l-39 296h-254v759h-306v-759h-255v-296h255v-218q0-186 104-288.5t277-102.5q147 0 228 12z" fill="#fff"></path></svg><span>Facebook</span>
+		    </a> 
+		  </li>
+		  
+		  <li><a href="https://twitter.com/intent/tweet?text=ESP8266%20(NodeMCU)%20post%20request%20data%20to%20website&amp;url=https%3A%2F%2Fcircuits4you.com%2F2018%2F03%2F10%2Fesp8266-nodemcu-post-request-data-to-website%2F&amp;via=manoj" target="_blank"><svg width="15" height="15" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1684 408q-67 98-162 167 1 14 1 42 0 130-38 259.5t-115.5 248.5-184.5 210.5-258 146-323 54.5q-271 0-496-145 35 4 78 4 225 0 401-138-105-2-188-64.5t-114-159.5q33 5 61 5 43 0 85-11-112-23-185.5-111.5t-73.5-205.5v-4q68 38 146 41-66-44-105-115t-39-154q0-88 44-163 121 149 294.5 238.5t371.5 99.5q-8-38-8-74 0-134 94.5-228.5t228.5-94.5q140 0 236 102 109-21 205-78-37 115-142 178 93-10 186-50z" fill="#fff"></path></svg><span>Twitter</span>
+		    </a>
+		  </li>		  
+		  
+		  <li><a href="https://plus.google.com/share?url=https%3A%2F%2Fcircuits4you.com%2F2018%2F03%2F10%2Fesp8266-nodemcu-post-request-data-to-website%2F" target="_blank"><svg width="15" height="15" viewBox="0 0 2304 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1437 913q0 208-87 370.5t-248 254-369 91.5q-149 0-285-58t-234-156-156-234-58-285 58-285 156-234 234-156 285-58q286 0 491 192l-199 191q-117-113-292-113-123 0-227.5 62t-165.5 168.5-61 232.5 61 232.5 165.5 168.5 227.5 62q83 0 152.5-23t114.5-57.5 78.5-78.5 49-83 21.5-74h-416v-252h692q12 63 12 122zm867-122v210h-209v209h-210v-209h-209v-210h209v-209h210v209h209z" fill="#fff"></path></svg><span>Google Plus</span>
+		    </a> 
+		  </li>
+
+		  <li><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fcircuits4you.com%2F2018%2F03%2F10%2Fesp8266-nodemcu-post-request-data-to-website%2F&amp;title=ESP8266%20(NodeMCU)%20post%20request%20data%20to%20website" target="_blank"><svg width="15" height="15" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M477 625v991h-330v-991h330zm21-306q1 73-50.5 122t-135.5 49h-2q-82 0-132-49t-50-122q0-74 51.5-122.5t134.5-48.5 133 48.5 51 122.5zm1166 729v568h-329v-530q0-105-40.5-164.5t-126.5-59.5q-63 0-105.5 34.5t-63.5 85.5q-11 30-11 81v553h-329q2-399 2-647t-1-296l-1-48h329v144h-2q20-32 41-56t56.5-52 87-43.5 114.5-15.5q171 0 275 113.5t104 332.5z" fill="#fff"></path></svg><span>LinkedIn</span>
+		    </a> 
+		  </li>
+
+		  <li><a href="https://pinterest.com/pin/create/button/?url=https%3A%2F%2Fcircuits4you.com%2F2018%2F03%2F10%2Fesp8266-nodemcu-post-request-data-to-website%2F&amp;media=&amp;description=ESP8266%20(NodeMCU)%20post%20request%20data%20to%20website" target="_blank"><svg width="15" height="15" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M256 597q0-108 37.5-203.5t103.5-166.5 152-123 185-78 202-26q158 0 294 66.5t221 193.5 85 287q0 96-19 188t-60 177-100 149.5-145 103-189 38.5q-68 0-135-32t-96-88q-10 39-28 112.5t-23.5 95-20.5 71-26 71-32 62.5-46 77.5-62 86.5l-14 5-9-10q-15-157-15-188 0-92 21.5-206.5t66.5-287.5 52-203q-32-65-32-169 0-83 52-156t132-73q61 0 95 40.5t34 102.5q0 66-44 191t-44 187q0 63 45 104.5t109 41.5q55 0 102-25t78.5-68 56-95 38-110.5 20-111 6.5-99.5q0-173-109.5-269.5t-285.5-96.5q-200 0-334 129.5t-134 328.5q0 44 12.5 85t27 65 27 45.5 12.5 30.5q0 28-15 73t-37 45q-2 0-17-3-51-15-90.5-56t-61-94.5-32.5-108-11-106.5z" fill="#fff"></path></svg><span>Pin It</span>
+		    </a> 
+		  </li></ul><div><script async="" src="./ESP8266 (NodeMCU) post request data to website _ Circuits4you.com_files/f.txt"></script>
+            <!-- AMP2c4y -->
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7614241663497500" data-ad-slot="4636179004" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            </script></div>
+<div id="jp-relatedposts" class="jp-relatedposts" style="display: block;">
+	<h3 class="jp-relatedposts-headline"><em>Related</em></h3>
+<div class="jp-relatedposts-items jp-relatedposts-items-visual jp-relatedposts-grid "><div class="jp-relatedposts-post jp-relatedposts-post0 jp-relatedposts-post-thumbs" data-post-id="1316" data-post-format="false"><a class="jp-relatedposts-post-a" href="https://circuits4you.com/2018/03/10/esp8266-http-get-request-example/" title="ESP8266 HTTP GET Request Example
+
+In this example we learn how to send get request to a web page using NodeMCU or ESP8266? As we know all webpages are HTTP protocols, GET and POST are methods of communicating between web browser and the server. Also we look towards server side php coding. If you are…" data-origin="1308" data-position="0"><img class="jp-relatedposts-post-img" src="./ESP8266 (NodeMCU) post request data to website _ Circuits4you.com_files/NodeMCU-POST-request(1).png" width="350" alt="ESP8266 HTTP GET Request Example"></a><h4 class="jp-relatedposts-post-title"><a class="jp-relatedposts-post-a" href="https://circuits4you.com/2018/03/10/esp8266-http-get-request-example/" title="ESP8266 HTTP GET Request Example
+
+In this example we learn how to send get request to a web page using NodeMCU or ESP8266? As we know all webpages are HTTP protocols, GET and POST are methods of communicating between web browser and the server. Also we look towards server side php coding. If you are…" data-origin="1308" data-position="0">ESP8266 HTTP GET Request Example</a></h4><p class="jp-relatedposts-post-excerpt">In this example we learn how to send get request to a web page using NodeMCU or ESP8266? As we know all webpages are HTTP protocols, GET and POST are methods of communicating between web browser and the server. Also we look towards server side php coding. If you are…</p><p class="jp-relatedposts-post-date" style="display: block;">March 10, 2018</p><p class="jp-relatedposts-post-context">In "ESP8266"</p></div><div class="jp-relatedposts-post jp-relatedposts-post1 jp-relatedposts-post-thumbs" data-post-id="1604" data-post-format="false"><a class="jp-relatedposts-post-a" href="https://circuits4you.com/2019/02/08/esp8266-nodemcu-https-secured-post-request/" title="ESP8266 NodeMCU HTTPS Secured POST Request
+
+In this example we learn how to send Secured POST request to a secured https web page using NodeMCU or ESP8266? As we know all web pages are HTTP protocols, GET and POST are methods of communicating between web browser and the server. Also you look towards server side php…" data-origin="1308" data-position="1"><img class="jp-relatedposts-post-img" src="./ESP8266 (NodeMCU) post request data to website _ Circuits4you.com_files/ESP8266-HTTPS-POST.png" width="350" alt="ESP8266 NodeMCU HTTPS Secured POST Request"></a><h4 class="jp-relatedposts-post-title"><a class="jp-relatedposts-post-a" href="https://circuits4you.com/2019/02/08/esp8266-nodemcu-https-secured-post-request/" title="ESP8266 NodeMCU HTTPS Secured POST Request
+
+In this example we learn how to send Secured POST request to a secured https web page using NodeMCU or ESP8266? As we know all web pages are HTTP protocols, GET and POST are methods of communicating between web browser and the server. Also you look towards server side php…" data-origin="1308" data-position="1">ESP8266 NodeMCU HTTPS Secured POST Request</a></h4><p class="jp-relatedposts-post-excerpt">In this example we learn how to send Secured POST request to a secured https web page using NodeMCU or ESP8266? As we know all web pages are HTTP protocols, GET and POST are methods of communicating between web browser and the server. Also you look towards server side php…</p><p class="jp-relatedposts-post-date" style="display: block;">February 8, 2019</p><p class="jp-relatedposts-post-context">In "ESP8266"</p></div><div class="jp-relatedposts-post jp-relatedposts-post2 jp-relatedposts-post-thumbs" data-post-id="1523" data-post-format="false"><a class="jp-relatedposts-post-a" href="https://circuits4you.com/2019/01/10/esp8266-nodemcu-https-secured-get-request/" title="ESP8266 NodeMCU HTTPS Secured GET Request
+
+In this example we learn how to send Secured GET request to a secured https web page using NodeMCU or ESP8266? As we know all web pages are HTTP protocols, GET and POST are methods of communicating between web browser and the server. Also you look towards server side php…" data-origin="1308" data-position="2"><img class="jp-relatedposts-post-img" src="./ESP8266 (NodeMCU) post request data to website _ Circuits4you.com_files/NodeMCU_https.png" width="350" alt="ESP8266 NodeMCU HTTPS Secured GET Request"></a><h4 class="jp-relatedposts-post-title"><a class="jp-relatedposts-post-a" href="https://circuits4you.com/2019/01/10/esp8266-nodemcu-https-secured-get-request/" title="ESP8266 NodeMCU HTTPS Secured GET Request
+
+In this example we learn how to send Secured GET request to a secured https web page using NodeMCU or ESP8266? As we know all web pages are HTTP protocols, GET and POST are methods of communicating between web browser and the server. Also you look towards server side php…" data-origin="1308" data-position="2">ESP8266 NodeMCU HTTPS Secured GET Request</a></h4><p class="jp-relatedposts-post-excerpt">In this example we learn how to send Secured GET request to a secured https web page using NodeMCU or ESP8266? As we know all web pages are HTTP protocols, GET and POST are methods of communicating between web browser and the server. Also you look towards server side php…</p><p class="jp-relatedposts-post-date" style="display: block;">January 10, 2019</p><p class="jp-relatedposts-post-context">In "ESP8266"</p></div></div></div>	</div><!-- .entry-content -->
+	
+	<footer class="entry-meta">
+		
+			</footer><!-- .entry-meta -->
+</article><!-- #post -->
+					<nav class="navigation post-navigation" role="navigation">
+		<h1 class="screen-reader-text">Post navigation</h1>
+		<div class="nav-links">
+
+			<a href="https://circuits4you.com/2018/03/09/esp8266-static-ip-address-arduino-example/" rel="prev"><span class="meta-nav">←</span> ESP8266 Static IP Address arduino Example</a>			<a href="https://circuits4you.com/2018/03/10/esp8266-http-get-request-example/" rel="next">ESP8266 HTTP GET Request Example <span class="meta-nav">→</span></a>
+		</div><!-- .nav-links -->
+	</nav><!-- .navigation -->
+					
+<div id="comments" class="comments-area">
+
+			<h2 class="comments-title">
+			11 thoughts on “<span>ESP8266 (NodeMCU) post request data to website</span>”		</h2>
+
+		<ol class="comment-list">
+					<li id="comment-4857" class="comment byuser comment-author-oguzhan_cicekli even thread-even depth-1 parent">
+			<article id="div-comment-4857" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./ESP8266 (NodeMCU) post request data to website _ Circuits4you.com_files/photo.j200" class="avatar avatar-wordpress-social-login avatar-74 photo" height="74" width="74">						<b class="fn">Oguzhan Cicekli</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://circuits4you.com/2018/03/10/esp8266-nodemcu-post-request-data-to-website/#comment-4857">
+							<time datetime="2019-03-25T14:43:47+00:00">
+								March 25, 2019 at 2:43 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hello I’m getting an error and error code is 403 I tried to solve it but I can’t found out how can u pls help me?my code and output of my code  below.Btw my internet connection OK. I only change the http.begin such as:</p>
+<p>Change of code:</p>
+<p>postData = “status=” + ADCData + “&amp;station=” + station ;<br>
+http.begin(“http://192.168.2.24/test2/postdemo.php”);<br>
+http.addHeader(“Content-Type”, “application/x-www-form-urlencoded”); </p>
+<p>OUTPUT :<br>
+403</p>
+<p>403 Forbidden</p>
+<p>Forbidden<br>
+You don’t have permission to access /test2/postdemo.php<br>
+on this server.</p>
+<p>Apache/2.4.37 (Win64) PHP/7.2.14 Server at 192.168.2.24 Port 80</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-login" href="https://circuits4you.com/wp-login.php?redirect_to=https%3A%2F%2Fcircuits4you.com%2F2018%2F03%2F10%2Fesp8266-nodemcu-post-request-data-to-website%2F">Log in to Reply</a></div>			</article><!-- .comment-body -->
+		<ol class="children">
+		<li id="comment-4858" class="comment byuser comment-author-admin bypostauthor odd alt depth-2">
+			<article id="div-comment-4858" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./ESP8266 (NodeMCU) post request data to website _ Circuits4you.com_files/6548fc749efccda56c1ad55e93dae245" srcset="https://secure.gravatar.com/avatar/6548fc749efccda56c1ad55e93dae245?s=148&amp;d=monsterid&amp;r=g 2x" class="avatar avatar-74 photo" height="74" width="74">						<b class="fn"><a href="http://www.circuits4you.com/" rel="external nofollow" class="url">Manoj R. Thakur</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://circuits4you.com/2018/03/10/esp8266-nodemcu-post-request-data-to-website/#comment-4858">
+							<time datetime="2019-03-28T05:05:33+00:00">
+								March 28, 2019 at 5:05 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Try to open web page in mobile or other device. If it works then only ESP can access it.<br>
+192.168 is local network, you will not able to access it on internet.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-login" href="https://circuits4you.com/wp-login.php?redirect_to=https%3A%2F%2Fcircuits4you.com%2F2018%2F03%2F10%2Fesp8266-nodemcu-post-request-data-to-website%2F">Log in to Reply</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-4825" class="comment byuser comment-author-ed_konzelman even thread-odd thread-alt depth-1 parent">
+			<article id="div-comment-4825" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./ESP8266 (NodeMCU) post request data to website _ Circuits4you.com_files/photo.jpg" class="avatar avatar-wordpress-social-login avatar-74 photo" height="74" width="74">						<b class="fn"><a href="https://plus.google.com/109377932779146460979" rel="external nofollow" class="url">Ed Konzelman</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://circuits4you.com/2018/03/10/esp8266-nodemcu-post-request-data-to-website/#comment-4825">
+							<time datetime="2019-02-13T22:09:58+00:00">
+								February 13, 2019 at 10:09 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>When I run my post data sketch and the MCU submiuts the post reequest, the target PHP script does not execute. The HTTP return code is is 200 and the Request response payload is  tge text of the target php script ( the same as if i had browsed to the script).<br>
+I have set the permissions to 777. What am I doing wrong?</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-login" href="https://circuits4you.com/wp-login.php?redirect_to=https%3A%2F%2Fcircuits4you.com%2F2018%2F03%2F10%2Fesp8266-nodemcu-post-request-data-to-website%2F">Log in to Reply</a></div>			</article><!-- .comment-body -->
+		<ol class="children">
+		<li id="comment-4826" class="comment byuser comment-author-ed_konzelman odd alt depth-2">
+			<article id="div-comment-4826" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./ESP8266 (NodeMCU) post request data to website _ Circuits4you.com_files/photo.jpg" class="avatar avatar-wordpress-social-login avatar-74 photo" height="74" width="74">						<b class="fn"><a href="https://plus.google.com/109377932779146460979" rel="external nofollow" class="url">Ed Konzelman</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://circuits4you.com/2018/03/10/esp8266-nodemcu-post-request-data-to-website/#comment-4826">
+							<time datetime="2019-02-14T03:58:57+00:00">
+								February 14, 2019 at 3:58 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Solved.<br>
+looked at <a href="https://circuits4you.com/2019/01/10/esp8266-nodemcu-https-secured-get-request/" rel="nofollow">https://circuits4you.com/2019/01/10/esp8266-nodemcu-https-secured-get-request/</a>   from and earlier comment  (note corrected link). Upgraded to 2.5.0 core and moved to HTTPS request.  The target script now executes. Still don’t have db insertion, but that is a separate problem.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-login" href="https://circuits4you.com/wp-login.php?redirect_to=https%3A%2F%2Fcircuits4you.com%2F2018%2F03%2F10%2Fesp8266-nodemcu-post-request-data-to-website%2F">Log in to Reply</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-4807" class="comment byuser comment-author-eko_kuncoro_pramono even thread-even depth-1 parent">
+			<article id="div-comment-4807" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./ESP8266 (NodeMCU) post request data to website _ Circuits4you.com_files/photo(1).jpg" class="avatar avatar-wordpress-social-login avatar-74 photo" height="74" width="74">						<b class="fn"><a href="https://plus.google.com/108484673267898433415" rel="external nofollow" class="url">Eko Kuncoro Pramono</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://circuits4you.com/2018/03/10/esp8266-nodemcu-post-request-data-to-website/#comment-4807">
+							<time datetime="2019-01-07T05:02:13+00:00">
+								January 7, 2019 at 5:02 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>I have already tried this tutorial and GET tutorial too. It worked, but when i put the php files on hosting server, it didnt work. I already change the “host” address in the sketch and already try to open the web through a web browser (which can be opened) but the data that should be post by nodemcu did not get there (it is not like when i still use the localhost server). Could you help me to solve this?<br>
+Thank you</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-login" href="https://circuits4you.com/wp-login.php?redirect_to=https%3A%2F%2Fcircuits4you.com%2F2018%2F03%2F10%2Fesp8266-nodemcu-post-request-data-to-website%2F">Log in to Reply</a></div>			</article><!-- .comment-body -->
+		<ol class="children">
+		<li id="comment-4808" class="comment byuser comment-author-admin bypostauthor odd alt depth-2">
+			<article id="div-comment-4808" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./ESP8266 (NodeMCU) post request data to website _ Circuits4you.com_files/6548fc749efccda56c1ad55e93dae245" srcset="https://secure.gravatar.com/avatar/6548fc749efccda56c1ad55e93dae245?s=148&amp;d=monsterid&amp;r=g 2x" class="avatar avatar-74 photo" height="74" width="74">						<b class="fn"><a href="http://www.circuits4you.com/" rel="external nofollow" class="url">Manoj R. Thakur</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://circuits4you.com/2018/03/10/esp8266-nodemcu-post-request-data-to-website/#comment-4808">
+							<time datetime="2019-01-07T14:35:33+00:00">
+								January 7, 2019 at 2:35 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Most common problem is HTTPS Secured server See this tutorial<br>
+<a href="http://https%20secured%20get%20request/" rel="nofollow">https://circuits4you.com/2019/01/10/esp8266-nodemcu-https-secured-get-request/</a></p>
+<p><strong>There are few reasons for that</strong><br>
+1. Your ESP is not getting internet connection.<br>
+2. Linux server is case SenSiTive.<br>
+3. Check http and https of your website<br>
+4. Check GET request sent through browser is working properly .<br>
+5. Also check response from server, on serial monitor.<br>
+6. Check Database is created properly.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-login" href="https://circuits4you.com/wp-login.php?redirect_to=https%3A%2F%2Fcircuits4you.com%2F2018%2F03%2F10%2Fesp8266-nodemcu-post-request-data-to-website%2F">Log in to Reply</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-4809" class="comment byuser comment-author-admin bypostauthor even depth-2 parent">
+			<article id="div-comment-4809" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./ESP8266 (NodeMCU) post request data to website _ Circuits4you.com_files/6548fc749efccda56c1ad55e93dae245" srcset="https://secure.gravatar.com/avatar/6548fc749efccda56c1ad55e93dae245?s=148&amp;d=monsterid&amp;r=g 2x" class="avatar avatar-74 photo" height="74" width="74">						<b class="fn"><a href="http://www.circuits4you.com/" rel="external nofollow" class="url">Manoj R. Thakur</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://circuits4you.com/2018/03/10/esp8266-nodemcu-post-request-data-to-website/#comment-4809">
+							<time datetime="2019-01-10T09:34:16+00:00">
+								January 10, 2019 at 9:34 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Error : -1</p>
+<p>If you are using secured server see this<br>
+<a href="https://circuits4you.com/2019/01/10/esp8266-nodemcu-https-secured-get-request/" rel="noopener" target="_blank">Secured HTTPS GET Request</a></p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-login" href="https://circuits4you.com/wp-login.php?redirect_to=https%3A%2F%2Fcircuits4you.com%2F2018%2F03%2F10%2Fesp8266-nodemcu-post-request-data-to-website%2F">Log in to Reply</a></div>			</article><!-- .comment-body -->
+		<ol class="children">
+		<li id="comment-4853" class="comment byuser comment-author-oguzhan_cicekli odd alt depth-3 parent">
+			<article id="div-comment-4853" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./ESP8266 (NodeMCU) post request data to website _ Circuits4you.com_files/photo.j200" class="avatar avatar-wordpress-social-login avatar-74 photo" height="74" width="74">						<b class="fn">Oguzhan Cicekli</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://circuits4you.com/2018/03/10/esp8266-nodemcu-post-request-data-to-website/#comment-4853">
+							<time datetime="2019-03-21T12:32:15+00:00">
+								March 21, 2019 at 12:32 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>I am getting Error:-1 but my connection is not secured i am using //http  what else could be a problem ? Great tutorial by the way ty</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-login" href="https://circuits4you.com/wp-login.php?redirect_to=https%3A%2F%2Fcircuits4you.com%2F2018%2F03%2F10%2Fesp8266-nodemcu-post-request-data-to-website%2F">Log in to Reply</a></div>			</article><!-- .comment-body -->
+		<ol class="children">
+		<li id="comment-4855" class="comment byuser comment-author-admin bypostauthor even depth-4 parent">
+			<article id="div-comment-4855" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./ESP8266 (NodeMCU) post request data to website _ Circuits4you.com_files/6548fc749efccda56c1ad55e93dae245" srcset="https://secure.gravatar.com/avatar/6548fc749efccda56c1ad55e93dae245?s=148&amp;d=monsterid&amp;r=g 2x" class="avatar avatar-74 photo" height="74" width="74">						<b class="fn"><a href="http://www.circuits4you.com/" rel="external nofollow" class="url">Manoj R. Thakur</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://circuits4you.com/2018/03/10/esp8266-nodemcu-post-request-data-to-website/#comment-4855">
+							<time datetime="2019-03-22T06:08:50+00:00">
+								March 22, 2019 at 6:08 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Guess<br>
+1. Host name is defined here at line 63   http.begin(“http://192.168.43.128/c4yforum/postdemo.php”);<br>
+Upper host name is useless.<br>
+2. Some thing is mismatch in web page address.<br>
+3. or URLEncodeing is required <a href="https://circuits4you.com/2019/03/21/esp8266-url-encode-decode-example/">URL Encode Decode Example ESP8266</a></p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-login" href="https://circuits4you.com/wp-login.php?redirect_to=https%3A%2F%2Fcircuits4you.com%2F2018%2F03%2F10%2Fesp8266-nodemcu-post-request-data-to-website%2F">Log in to Reply</a></div>			</article><!-- .comment-body -->
+		<ol class="children">
+		<li id="comment-4856" class="comment byuser comment-author-oguzhan_cicekli odd alt depth-5">
+			<article id="div-comment-4856" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./ESP8266 (NodeMCU) post request data to website _ Circuits4you.com_files/photo.j200" class="avatar avatar-wordpress-social-login avatar-74 photo" height="74" width="74">						<b class="fn">Oguzhan Cicekli</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://circuits4you.com/2018/03/10/esp8266-nodemcu-post-request-data-to-website/#comment-4856">
+							<time datetime="2019-03-22T07:20:06+00:00">
+								March 22, 2019 at 7:20 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Thank you for answer.I tried to reach localhost.should i specify to port i don’t know anything about it.<br>
+ http.begin(“http://192.168.2.24/test2/postdemo.php”);</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-4566" class="comment byuser comment-author-atux_atux even thread-odd thread-alt depth-1">
+			<article id="div-comment-4566" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./ESP8266 (NodeMCU) post request data to website _ Circuits4you.com_files/photo(2).jpg" class="avatar avatar-wordpress-social-login avatar-74 photo" height="74" width="74">						<b class="fn"><a href="https://plus.google.com/118266154012131859764" rel="external nofollow" class="url">Atux Atux</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://circuits4you.com/2018/03/10/esp8266-nodemcu-post-request-data-to-website/#comment-4566">
+							<time datetime="2018-07-12T11:08:43+00:00">
+								July 12, 2018 at 11:08 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>This a really good tutorial, well done. I am implementing a small project and i would like to ask how i could modify your tutorial. I have a server running LAMP (Linux, Apache, Mysql, Php7) and i need it to keep track on its database the value of 2 sensors.<br>
+An ESP8266 nodemcu needs to have 2 magnetic door switches (named Door_A &amp; Door_B). Once one of them change its state then send an update to the MYSQL, instead of polling it every x secs. Is there any way that i could implement that please?</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-login" href="https://circuits4you.com/wp-login.php?redirect_to=https%3A%2F%2Fcircuits4you.com%2F2018%2F03%2F10%2Fesp8266-nodemcu-post-request-data-to-website%2F">Log in to Reply</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		</ol><!-- .comment-list -->
+
+		
+		
+	
+		<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="https://circuits4you.com/2018/03/10/esp8266-nodemcu-post-request-data-to-website/#respond" style="display:none;">Cancel reply</a></small></h3><p class="must-log-in">You must be <a href="https://circuits4you.com/wp-login.php?redirect_to=https%3A%2F%2Fcircuits4you.com%2F2018%2F03%2F10%2Fesp8266-nodemcu-post-request-data-to-website%2F">logged in</a> to post a comment.</p>
+<!--
+	wsl_render_auth_widget
+	WordPress Social Login 2.3.3.
+	http://wordpress.org/plugins/wordpress-social-login/
+-->
+
+<style type="text/css">
+.wp-social-login-connect-with{}.wp-social-login-provider-list{}.wp-social-login-provider-list a{}.wp-social-login-provider-list img{}.wsl_connect_with_provider{}.login h1 a{background-image: url(https://circuits4you.com/wp-content/uploads/2016/05/Logo.gif?ver=20171202);background-image: none,url(https://circuits4you.com/wp-content/uploads/2016/05/Logo.gif?ver=20171202);background-size:280px;width: 300px;height: 58px}.login form{background: #fff;box-shadow: 0px 0px 0px 0px}#login{padding: 2% 0 0;background: #00A8A9;margin-top: 18px;border: 1px solid black;box-shadow: 1px 5px 9px 1px}.login #login_error, .login .message{border-left: 4px solid #00a0d2;padding: 0px 0px 0px 75px;margin-left: 0;margin-bottom: 20px;background-color: #00A8A9;box-shadow: 0px 0px 0px 0px}.wp-social-login-connect-with{text-align: center;font-size: 16px;margin-bottom: 5px}.wp-social-login-provider-list{text-align: center;margin-bottom: 15px}.wp-social-login-provider, .wp-social-login-provider:hover{display: inline-block;height: 44px;width: 190px;margin: 0px;color: transparent}.wp-social-login-provider-google{background-image: url( "https://circuits4you.com/wp-content/uploads/2018/02/btn_google_signin_dark_normal_web.png" );</style>
+
+<div class="wp-social-login-widget">
+
+	<div class="wp-social-login-connect-with">Login with:</div>
+
+	<div class="wp-social-login-provider-list">
+
+		<a rel="nofollow" href="https://circuits4you.com/wp-login.php?action=wordpress_social_authenticate&amp;mode=login&amp;provider=Google&amp;redirect_to=https%3A%2F%2Fcircuits4you.com%2F2018%2F03%2F10%2Fesp8266-nodemcu-post-request-data-to-website%2F" title="Connect with Google" class="wp-social-login-provider wp-social-login-provider-google" data-provider="Google">
+			Google
+		</a>
+
+	</div>
+
+	<div class="wp-social-login-widget-clearing"></div>
+
+</div>
+
+<!-- wsl_render_auth_widget -->
+
+	</div><!-- #respond -->
+	
+</div><!-- #comments -->
+			
+		</div><!-- #content -->
+	</div><!-- #primary -->
+
+	<div id="tertiary" class="sidebar-container" role="complementary">
+		<div class="sidebar-inner">
+			<div class="widget-area">
+				<aside id="custom_html-3" class="widget_text widget widget_custom_html"><h3 class="widget-title">Our Smart Home Product</h3><div class="textwidget custom-html-widget"><div>
+	<a href="https://katkum.com/">
+<h4>
+	Make your home smart
+</h4>
+	Circuits4you.com own product
+	<img src="./ESP8266 (NodeMCU) post request data to website _ Circuits4you.com_files/katkumwithprice.jpg" alt="katkum smart home"></a>
+</div></div></aside><aside id="text-7" class="widget widget_text"><h3 class="widget-title">Our e-Books</h3>			<div class="textwidget"><b>NodeMCU Communication Methods and Protocols:</b> Upgrade Your Knowledge
+<a href="https://circuits4you.com/nodemcu-esp8266-communication-methods-and-protocols/">
+<center>
+<img src="./ESP8266 (NodeMCU) post request data to website _ Circuits4you.com_files/ESPProtocols3DbookSmall.png" height="250" width="185"></center><br></a>
+<hr>
+<b>Zero to Hero: ESP8266:</b> Become Super hero of Internet of Things
+<a href="https://circuits4you.com/zero-to-hero-esp8266/">
+<center>
+<img src="./ESP8266 (NodeMCU) post request data to website _ Circuits4you.com_files/seb4.png" height="250" width="185"></center><br></a>
+<hr>
+<b>Measurement Made Simple with Arduino:</b> Ultimate e-Book for all your measurement needs at one place.
+<a href="https://circuits4you.com/measurement-made-simple-with-arduino/">
+<center>
+<img src="./ESP8266 (NodeMCU) post request data to website _ Circuits4you.com_files/seb2.png" height="250" width="185"></center><br></a>
+<b>Arduino Beginners Guide:</b> Get started with arduino in simple steps<a href="https://circuits4you.com/arduino-beginners-guide/">
+<center>
+<img src="./ESP8266 (NodeMCU) post request data to website _ Circuits4you.com_files/3dbook-arduino-beginners-guide.png" height="250" width="185"></center><br></a></div>
+		</aside><aside id="custom_html-2" class="widget_text widget widget_custom_html"><h3 class="widget-title">Join Circuits4You community</h3><div class="textwidget custom-html-widget"><a href="https://steps2make.com/">
+<img src="./ESP8266 (NodeMCU) post request data to website _ Circuits4you.com_files/Banner.jpg">
+</a></div></aside><aside id="custom_html-4" class="widget_text widget widget_custom_html"><h3 class="widget-title">Ad</h3><div class="textwidget custom-html-widget"><div>
+<script async="" src="./ESP8266 (NodeMCU) post request data to website _ Circuits4you.com_files/f.txt"></script>
+<!-- c4yads -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7614241663497500" data-ad-slot="1906004070" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div></div></aside>		<aside id="recent-posts-4" class="widget widget_recent_entries">		<h3 class="widget-title">Recent Posts</h3>		<ul>
+											<li>
+					<a href="https://circuits4you.com/2019/03/28/esp8266-iot-rgb-led-strip-mood-lamp-controller/">ESP8266 IoT Based RGB LED Strip Controller</a>
+									</li>
+											<li>
+					<a href="https://circuits4you.com/2019/03/23/esp8266-bmp180-pressure-sensor-interface/">ESP8266 BMP180 pressure sensor interface</a>
+									</li>
+											<li>
+					<a href="https://circuits4you.com/2019/03/22/esp8266-weather-station-arduino/">ESP8266 weather station using Arduino IDE</a>
+									</li>
+											<li>
+					<a href="https://circuits4you.com/2019/03/21/esp8266-url-encode-decode-example/">ESP8266 URL Encode Decode Example</a>
+									</li>
+											<li>
+					<a href="https://circuits4you.com/2019/03/20/esp8266-receive-post-get-request-data-from-website/">ESP8266 Node MCU Handling HTML web forms data</a>
+									</li>
+					</ul>
+		</aside><aside id="custom_html-5" class="widget_text widget widget_custom_html"><h3 class="widget-title">Ad</h3><div class="textwidget custom-html-widget"><div>
+	<script async="" src="./ESP8266 (NodeMCU) post request data to website _ Circuits4you.com_files/f.txt"></script>
+<ins class="adsbygoogle" style="display:block" data-ad-format="autorelaxed" data-ad-client="ca-pub-7614241663497500" data-ad-slot="3953652721"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div></div></aside>			</div><!-- .widget-area -->
+		</div><!-- .sidebar-inner -->
+	</div><!-- #tertiary -->
+
+		</div><!-- #main -->
+		<footer id="colophon" class="site-footer" role="contentinfo">
+				<div id="secondary" class="sidebar-container" role="complementary">
+		<div class="widget-area masonry" style="position: relative; height: 391px;">
+			<aside id="blog_subscription-2" class="widget widget_blog_subscription jetpack_subscription_widget masonry-brick" style="position: absolute; left: 0px; top: 0px;"><h3 class="widget-title">Subscribe to Blog via Email</h3>
+            <form action="https://circuits4you.com/2018/03/10/esp8266-nodemcu-post-request-data-to-website/#" method="post" accept-charset="utf-8" id="subscribe-blog-blog_subscription-2">
+				                    <div id="subscribe-text"><p>Enter your email address to subscribe to this blog and receive notifications of new posts by email.</p>
+</div><p>Join 272 other subscribers</p>
+                    <p id="subscribe-email">
+                        <label id="jetpack-subscribe-label" class="screen-reader-text" for="subscribe-field-blog_subscription-2">
+							Email Address                        </label>
+                        <input type="email" name="email" required="required" class="required" value="" id="subscribe-field-blog_subscription-2" placeholder="Email Address">
+                    </p>
+
+                    <p id="subscribe-submit">
+                        <input type="hidden" name="action" value="subscribe">
+                        <input type="hidden" name="source" value="https://circuits4you.com/2018/03/10/esp8266-nodemcu-post-request-data-to-website/">
+                        <input type="hidden" name="sub-type" value="widget">
+                        <input type="hidden" name="redirect_fragment" value="blog_subscription-2">
+						                        <button type="submit" name="jetpack_subscriptions_widget">
+	                        Subscribe                        </button>
+                    </p>
+				            </form>
+		
+</aside>		<aside id="recent-posts-3" class="widget widget_recent_entries masonry-brick" style="position: absolute; left: 248px; top: 0px;">		<h3 class="widget-title">Recent Posts</h3>		<ul>
+											<li>
+					<a href="https://circuits4you.com/2019/03/28/esp8266-iot-rgb-led-strip-mood-lamp-controller/">ESP8266 IoT Based RGB LED Strip Controller</a>
+									</li>
+											<li>
+					<a href="https://circuits4you.com/2019/03/23/esp8266-bmp180-pressure-sensor-interface/">ESP8266 BMP180 pressure sensor interface</a>
+									</li>
+											<li>
+					<a href="https://circuits4you.com/2019/03/22/esp8266-weather-station-arduino/">ESP8266 weather station using Arduino IDE</a>
+									</li>
+											<li>
+					<a href="https://circuits4you.com/2019/03/21/esp8266-url-encode-decode-example/">ESP8266 URL Encode Decode Example</a>
+									</li>
+											<li>
+					<a href="https://circuits4you.com/2019/03/20/esp8266-receive-post-get-request-data-from-website/">ESP8266 Node MCU Handling HTML web forms data</a>
+									</li>
+					</ul>
+		</aside><aside id="text-2" class="widget widget_text masonry-brick" style="position: absolute; left: 496px; top: 0px;"><h3 class="widget-title">About Us</h3>			<div class="textwidget"><a href="https://circuits4you.com/terms-and-conditions/">Terms &amp; Conditions</a><br>
+<a href="https://circuits4you.com/privacy-policy/">Privacy Policy</a><br>
+<a href="https://circuits4you.com/contact-us/">Contact Us</a></div>
+		</aside><aside id="search-2" class="widget widget_search masonry-brick" style="position: absolute; left: 496px; top: 160px;"><form role="search" method="get" class="search-form" action="https://circuits4you.com/">
+				<label>
+					<span class="screen-reader-text">Search for:</span>
+					<input type="search" class="search-field" placeholder="Search …" value="" name="s">
+				</label>
+				<input type="submit" class="search-submit" value="Search">
+			</form></aside>		</div><!-- .widget-area -->
+	</div><!-- #secondary -->
+		</footer><!-- #colophon -->
+	</div><!-- #page -->
+
+	<script type="text/javascript" src="./ESP8266 (NodeMCU) post request data to website _ Circuits4you.com_files/devicepx-jetpack.js.download"></script>
+<script type="text/javascript" src="./ESP8266 (NodeMCU) post request data to website _ Circuits4you.com_files/comment-reply.min.js.download"></script>
+<script type="text/javascript" src="./ESP8266 (NodeMCU) post request data to website _ Circuits4you.com_files/imagesloaded.min.js.download"></script>
+<script type="text/javascript" src="./ESP8266 (NodeMCU) post request data to website _ Circuits4you.com_files/masonry.min.js.download"></script>
+<script type="text/javascript" src="./ESP8266 (NodeMCU) post request data to website _ Circuits4you.com_files/jquery.masonry.min.js.download"></script>
+<script type="text/javascript" src="./ESP8266 (NodeMCU) post request data to website _ Circuits4you.com_files/functions.js.download"></script>
+<script type="text/javascript" src="./ESP8266 (NodeMCU) post request data to website _ Circuits4you.com_files/wp-embed.min.js.download"></script>
+<script type="text/javascript" src="./ESP8266 (NodeMCU) post request data to website _ Circuits4you.com_files/e-202024.js.download" async="async" defer="defer"></script>
+<script type="text/javascript">
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:7.9.1',blog:'111354609',post:'1308',tz:'0',srv:'circuits4you.com'} ]);
+	_stq.push([ 'clickTrackerInit', '111354609', '1308' ]);
+</script>
+
+</body></html>
